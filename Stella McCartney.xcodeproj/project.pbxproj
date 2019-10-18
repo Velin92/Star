@@ -14,6 +14,9 @@
 		A72DCE4023590B6000910862 /* Stella_McCartneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE3F23590B6000910862 /* Stella_McCartneyTests.swift */; };
 		A72DCE4B23590B6000910862 /* Stella_McCartneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */; };
 		A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D92A235A4E9300F0BC04 /* MenuViewController.swift */; };
+		A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */; };
+		A7A1D933235A651200F0BC04 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D932235A651200F0BC04 /* MenuInteractor.swift */; };
+		A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */; };
 		A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA5885235911FD00EE368D /* MainCoordinator.swift */; };
 		A7DA58892359153400EE368D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA58882359153400EE368D /* Storyboarded.swift */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
@@ -51,6 +54,9 @@
 		A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stella_McCartneyUITests.swift; sourceTree = "<group>"; };
 		A72DCE4C23590B6000910862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7A1D92A235A4E9300F0BC04 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		A7A1D932235A651200F0BC04 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
+		A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewController.swift; sourceTree = "<group>"; };
 		A7DA5885235911FD00EE368D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7DA58882359153400EE368D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,8 @@
 		A72DCE2723590B5F00910862 /* Stella McCartney */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1D931235A650100F0BC04 /* Interactors */,
+				A7A1D92E235A638200F0BC04 /* ViewModels */,
 				A7A1D929235A4E1400F0BC04 /* Controllers */,
 				A7DA58872359151500EE368D /* Protocols */,
 				A72DCE2823590B5F00910862 /* AppDelegate.swift */,
@@ -150,8 +158,25 @@
 			isa = PBXGroup;
 			children = (
 				A7A1D92A235A4E9300F0BC04 /* MenuViewController.swift */,
+				A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A7A1D92E235A638200F0BC04 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7A1D931235A650100F0BC04 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1D932235A651200F0BC04 /* MenuInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		A7DA58872359151500EE368D /* Protocols */ = {
@@ -348,7 +373,10 @@
 			files = (
 				A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */,
 				A72DCE2923590B5F00910862 /* AppDelegate.swift in Sources */,
+				A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */,
 				A7DA58892359153400EE368D /* Storyboarded.swift in Sources */,
+				A7A1D933235A651200F0BC04 /* MenuInteractor.swift in Sources */,
+				A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */,
 				A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

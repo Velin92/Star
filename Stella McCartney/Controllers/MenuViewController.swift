@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-protocol MainViewProtocol where Self: UIViewController {
-    
+protocol MenuViewProtocol where Self: UIViewController {
+    func goToProductList()
 }
 
 class MenuViewController: UIViewController, Storyboarded {
@@ -19,6 +19,9 @@ class MenuViewController: UIViewController, Storyboarded {
     @IBOutlet weak var lingerieView: UIView!
     @IBOutlet weak var readyToWearView: UIView!
     @IBOutlet weak var accessoriesView: UIView!
+    
+    var goToProductListClosure: (()->Void)?
+    var viewModel: MenuViewModelProtocol!
     
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -38,19 +41,25 @@ class MenuViewController: UIViewController, Storyboarded {
     }
     
     @objc private func didTapOnBeautyView(_ sender: UITapGestureRecognizer) {
+        viewModel.tappedOnBeauty()
     }
     
     @objc private func didTapOnReadyToWearView(_ sender: UITapGestureRecognizer) {
+        viewModel.tappedOnReadyToWear()
     }
     
     @objc private func didTapOnLingerieView(_ sender: UITapGestureRecognizer) {
+        viewModel.tappedOnLingerie()
     }
     
     @objc private func didTapOnAccessoriesView(_ sender: UITapGestureRecognizer) {
+        viewModel.tappedOnAccessories()
     }
-    
 }
 
-extension MenuViewController: MainViewProtocol {
+extension MenuViewController: MenuViewProtocol {
     
+    func goToProductList() {
+        goToProductListClosure?()
+    }
 }
