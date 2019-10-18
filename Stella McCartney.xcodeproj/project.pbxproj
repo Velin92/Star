@@ -21,6 +21,7 @@
 		A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93B235A6D2200F0BC04 /* ProductsListResponse.swift */; };
 		A7A1D93E235A70E200F0BC04 /* ProducstListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93D235A70E200F0BC04 /* ProducstListRequest.swift */; };
 		A7A1D940235A743D00F0BC04 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93F235A743D00F0BC04 /* APIConstants.swift */; };
+		A7A1D943235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */; };
 		A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA5885235911FD00EE368D /* MainCoordinator.swift */; };
 		A7DA58892359153400EE368D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA58882359153400EE368D /* Storyboarded.swift */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
@@ -65,6 +66,7 @@
 		A7A1D93B235A6D2200F0BC04 /* ProductsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListResponse.swift; sourceTree = "<group>"; };
 		A7A1D93D235A70E200F0BC04 /* ProducstListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducstListRequest.swift; sourceTree = "<group>"; };
 		A7A1D93F235A743D00F0BC04 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decodeResponse.swift"; sourceTree = "<group>"; };
 		A7DA5885235911FD00EE368D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7DA58882359153400EE368D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 		A72DCE2723590B5F00910862 /* Stella McCartney */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1D941235A77B700F0BC04 /* Extensions */,
 				A7A1D936235A69B400F0BC04 /* Services */,
 				A7A1D931235A650100F0BC04 /* Interactors */,
 				A7A1D92E235A638200F0BC04 /* ViewModels */,
@@ -213,6 +216,14 @@
 				A7A1D93B235A6D2200F0BC04 /* ProductsListResponse.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		A7A1D941235A77B700F0BC04 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A7DA58872359151500EE368D /* Protocols */ = {
@@ -409,6 +420,7 @@
 			files = (
 				A7A1D938235A69F600F0BC04 /* RestRouter.swift in Sources */,
 				A7A1D940235A743D00F0BC04 /* APIConstants.swift in Sources */,
+				A7A1D943235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift in Sources */,
 				A7A1D93E235A70E200F0BC04 /* ProducstListRequest.swift in Sources */,
 				A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */,
 				A72DCE2923590B5F00910862 /* AppDelegate.swift in Sources */,
