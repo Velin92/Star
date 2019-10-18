@@ -16,25 +16,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkX-7u-p25">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkX-7u-p25" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-ig-SYW" userLabel="Lingerie">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-ig-SYW" userLabel="Beauty">
                                 <rect key="frame" x="207" y="0.0" width="207" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beauty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsW-RG-Jlr">
+                                        <rect key="frame" x="77" y="213.5" width="53.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zsW-RG-Jlr" firstAttribute="centerX" secondItem="vM7-ig-SYW" secondAttribute="centerX" id="1Lk-HM-gr6"/>
+                                    <constraint firstItem="zsW-RG-Jlr" firstAttribute="centerY" secondItem="vM7-ig-SYW" secondAttribute="centerY" id="kbr-of-PLe"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-r0-7aH" userLabel="Beauty">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-r0-7aH" userLabel="Lingerie">
                                 <rect key="frame" x="0.0" y="0.0" width="207" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lingerie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pX6-Yn-hlb">
+                                        <rect key="frame" x="73" y="213.5" width="61.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="pX6-Yn-hlb" firstAttribute="centerX" secondItem="Qgl-r0-7aH" secondAttribute="centerX" id="49Q-U1-KnC"/>
+                                    <constraint firstItem="pX6-Yn-hlb" firstAttribute="centerY" secondItem="Qgl-r0-7aH" secondAttribute="centerY" id="aJq-8a-Dzw"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDJ-2F-NkY" userLabel="ReadyToWear">
                                 <rect key="frame" x="207" y="448" width="207" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready To Wear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSW-wB-AeW">
+                                        <rect key="frame" x="46.5" y="214" width="114.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WSW-wB-AeW" firstAttribute="centerY" secondItem="KDJ-2F-NkY" secondAttribute="centerY" id="nTe-1E-WGi"/>
+                                    <constraint firstItem="WSW-wB-AeW" firstAttribute="centerX" secondItem="KDJ-2F-NkY" secondAttribute="centerX" id="tGg-C2-EtR"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWX-A0-8D3" userLabel="Accessories">
                                 <rect key="frame" x="0.0" y="448" width="207" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accessories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggq-NY-dxT">
+                                        <rect key="frame" x="57.5" y="213.5" width="92.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ggq-NY-dxT" firstAttribute="centerY" secondItem="RWX-A0-8D3" secondAttribute="centerY" id="Naa-Aq-DEX"/>
+                                    <constraint firstItem="Ggq-NY-dxT" firstAttribute="centerX" secondItem="RWX-A0-8D3" secondAttribute="centerX" id="eyx-Fu-PpJ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,6 +114,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZYH-TA-mcF"/>
                     </view>
+                    <connections>
+                        <outlet property="accessoriesView" destination="RWX-A0-8D3" id="QBP-GZ-KYE"/>
+                        <outlet property="beautyView" destination="vM7-ig-SYW" id="lHZ-E9-mkd"/>
+                        <outlet property="lingerieView" destination="Qgl-r0-7aH" id="yGk-kz-6Os"/>
+                        <outlet property="readyToWearView" destination="KDJ-2F-NkY" id="iHb-e1-HtK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
