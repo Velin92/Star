@@ -15,6 +15,10 @@ protocol MainViewProtocol where Self: UIViewController {
 
 class MenuViewController: UIViewController, Storyboarded {
     
+    override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
 }
 
 extension MenuViewController: MainViewProtocol {
