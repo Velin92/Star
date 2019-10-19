@@ -18,7 +18,7 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     weak var view: ProductsListViewProtocol!
     let interactor: ProductsListInteractorProtocol
     var viewState = ProductsListViewState(productSections: [])
-    var viewIndexesToId : [IndexPath: String] = [:]
+    var viewIndexesToProductId : [IndexPath: String] = [:]
     
     init(view: ProductsListViewProtocol, interactor: ProductsListInteractorProtocol) {
         self.view = view
@@ -29,7 +29,8 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
         interactor.loadProductsList() { [weak self] result in
             switch result {
             case .success(let products):
-                self?.updateViewState(with: products)
+                self?.populateViewModel(with: products)
+                self?.updateViewState()
                 break
             case .failure:
                 break
@@ -37,23 +38,27 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
         }
     }
     
-    private func updateViewState(with products: [Product]) {
+    private func populateViewModel(with products: [Product]) {
         let sectionsSet = Set(products.compactMap {$0.microCategory})
         let orderedSections = sectionsSet.map{$0}.sorted()
         orderedSections.enumerated().forEach { (sectionIndex,section) in
-            let productsOfSection = products.filter {$0.microCategory == section}
-            let productsOfSectionOrdered = productsOfSection.sorted(by: {$0.modelNames <= $1.modelNames})
-            productsOfSectionOrdered.enumerated().forEach { (arg) in
+            let orderedProductsOfSection = products.filter {$0.microCategory == section}.sorted(by: {$0.modelNames <= $1.modelNames})
+            var productsViewState = [ProductViewState]()
+            orderedProductsOfSection.enumerated().forEach { (arg) in
                 let (productIndex, product) = arg
-                viewIndexesToId[IndexPath(item: productIndex, section: sectionIndex)] = product.code8
+                viewIndexesToProductId[IndexPath(item: productIndex, section: sectionIndex)] = product.code8
+                productsViewState.append(ProductViewState(name: product.modelNames, price: product.fullPrice))
             }
-            let productsViewState = productsOfSectionOrdered.compactMap {ProductViewState(name: $0.modelNames, price: $0.fullPrice)}
             viewState.productSections.append(ProductsSectionViewState(name: section, products: productsViewState))
         }
-        self.view.viewState = self.viewState
+    }
+    
+    private func updateViewState() {
+        self.view.viewState = viewState
     }
     
     func selectedProduct(at index: Int, in section: Int){
         let indexPath = IndexPath(item: index, section: section)
+        print(viewIndexesToProductId[indexPath])
     }
 }
