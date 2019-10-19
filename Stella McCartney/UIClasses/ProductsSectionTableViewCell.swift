@@ -13,6 +13,8 @@ class ProductsSectionTableViewCell: UITableViewCell {
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var sectionLabel: UILabel!
     
+    var selectedProductClosure: ((Int, UITableViewCell) -> Void)?
+    
     var viewState = ProductsSectionViewState(name: "", products: []){
         didSet {
             updateCell()
@@ -54,6 +56,10 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 140, height: 182)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedProductClosure?(indexPath.item, self)
     }
     
     

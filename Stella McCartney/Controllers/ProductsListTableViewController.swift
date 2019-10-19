@@ -48,6 +48,9 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Prod
             fatalError("Cell not correctly setup in storyboard")
         }
         cell.viewState = viewState.productSections[indexPath.row]
+        cell.selectedProductClosure = { [weak self] productIndex, cell in
+            self?.selectedProduct(at: productIndex, in: cell)
+        }
         return cell
     }
     
@@ -57,5 +60,12 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Prod
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
+    }
+    
+    private func selectedProduct(at index: Int, in cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            fatalError("Error something is wrong, this indexPath should exist")
+        }
+        viewModel.selectedProduct(at: index, in: indexPath.row)
     }
 }

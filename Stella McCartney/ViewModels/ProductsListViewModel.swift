@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProductsListViewModelProtocol {
     func loadProductsList()
+    func selectedProduct(at index: Int, in section: Int)
 }
 
 class ProductsListViewModel: ProductsListViewModelProtocol {
@@ -17,6 +18,7 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     weak var view: ProductsListViewProtocol!
     let interactor: ProductsListInteractorProtocol
     var viewState = ProductsListViewState(productSections: [])
+    var viewIndexesToId : [IndexPath: String] = [:]
     
     init(view: ProductsListViewProtocol, interactor: ProductsListInteractorProtocol) {
         self.view = view
@@ -38,11 +40,20 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     private func updateViewState(with products: [Product]) {
         let sectionsSet = Set(products.compactMap {$0.microCategory})
         let orderedSections = sectionsSet.map{$0}.sorted()
-        orderedSections.forEach { section in
+        orderedSections.enumerated().forEach { (sectionIndex,section) in
             let productsOfSection = products.filter {$0.microCategory == section}
-            let productsViewState = productsOfSection.compactMap {ProductViewState(name: $0.modelNames, price: $0.fullPrice)}.sorted(by: {$0.name < $1.name})
+            let productsOfSectionOrdered = productsOfSection.sorted(by: {$0.modelNames <= $1.modelNames})
+            productsOfSectionOrdered.enumerated().forEach { (arg) in
+                let (productIndex, product) = arg
+                viewIndexesToId[IndexPath(item: productIndex, section: sectionIndex)] = product.code8
+            }
+            let productsViewState = productsOfSectionOrdered.compactMap {ProductViewState(name: $0.modelNames, price: $0.fullPrice)}
             viewState.productSections.append(ProductsSectionViewState(name: section, products: productsViewState))
         }
         self.view.viewState = self.viewState
+    }
+    
+    func selectedProduct(at index: Int, in section: Int){
+        let indexPath = IndexPath(item: index, section: section)
     }
 }

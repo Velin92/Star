@@ -16,8 +16,8 @@ protocol ProductsListAPIClient {
 class APIClient {
     
     private func request<T: Codable> (_ urlConvertible: URLRequestConvertible, completion: @escaping (AFResult<T>) -> Void) {
-        AF.request(urlConvertible).responseData(completionHandler:{ (dataResponse: AFDataResponse<Data>) in
-            //self?.printResponse(response: dataResponse)
+        AF.request(urlConvertible).responseData(completionHandler:{ [weak self] (dataResponse: AFDataResponse<Data>) in
+            self?.printResponse(response: dataResponse)
             let decoder = JSONDecoder()
             let response: AFResult<T> = decoder.decodeResponse(from: dataResponse)
             completion(response)

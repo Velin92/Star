@@ -43,7 +43,7 @@ struct ResultsLite: Codable {
 
 // MARK: - Item
 struct Product: Codable {
-    let code8: String?
+    let code8: String
     let brandName: String?
     let defaultCode10, macroCategory: String?
     let microCategory: String
