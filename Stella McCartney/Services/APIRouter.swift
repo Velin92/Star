@@ -9,17 +9,14 @@
 import Foundation
 import Alamofire
 
-enum Constants
-{
+enum Constants {
   static let baseURLPath = "https://api.yoox.biz"
 }
 
-enum ApiRouter: URLRequestConvertible
-{
+enum APIRouter: URLRequestConvertible {
   case productsList(productsListRequest: ProductsListRequest)
   
-  var method: HTTPMethod
-  {
+  var method: HTTPMethod {
     switch self
     {
     case .productsList:
@@ -27,8 +24,7 @@ enum ApiRouter: URLRequestConvertible
     }
   }
   
-  var path: String
-  {
+  var path: String {
     switch self
     {
     case .productsList:
@@ -36,8 +32,7 @@ enum ApiRouter: URLRequestConvertible
     }
   }
   
-  var encoding: ParameterEncoding
-  {
+  var encoding: ParameterEncoding {
     switch method
     {
     case .get:
@@ -47,8 +42,7 @@ enum ApiRouter: URLRequestConvertible
     }
   }
   
-  public func asURLRequest() throws -> URLRequest
-  {
+  public func asURLRequest() throws -> URLRequest {
     let url = try Constants.baseURLPath.asURL()
     var urlRequest = URLRequest(url: url.appendingPathComponent(path))
     
@@ -58,8 +52,7 @@ enum ApiRouter: URLRequestConvertible
     // Common Headers
     urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
     
-    if method == .post
-    {
+    if method == .post {
         let codable: Any = getConcreteCodables()
         do
         {
@@ -70,9 +63,7 @@ enum ApiRouter: URLRequestConvertible
           throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
         }
       return urlRequest
-    }
-    else
-    {
+    } else {
       switch self {
       case .productsList(let productsListRequest):
          urlRequest = try URLEncodedFormParameterEncoder.default.encode(productsListRequest, into: urlRequest)

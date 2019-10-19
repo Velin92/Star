@@ -17,11 +17,12 @@
 		A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */; };
 		A7A1D933235A651200F0BC04 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D932235A651200F0BC04 /* MenuInteractor.swift */; };
 		A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */; };
-		A7A1D938235A69F600F0BC04 /* RestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D937235A69F600F0BC04 /* RestRouter.swift */; };
+		A7A1D938235A69F600F0BC04 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D937235A69F600F0BC04 /* APIRouter.swift */; };
 		A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93B235A6D2200F0BC04 /* ProductsListResponse.swift */; };
 		A7A1D93E235A70E200F0BC04 /* ProducstListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93D235A70E200F0BC04 /* ProducstListRequest.swift */; };
 		A7A1D940235A743D00F0BC04 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D93F235A743D00F0BC04 /* APIConstants.swift */; };
 		A7A1D943235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */; };
+		A7A1D945235B270A00F0BC04 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D944235B270A00F0BC04 /* APIClient.swift */; };
 		A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA5885235911FD00EE368D /* MainCoordinator.swift */; };
 		A7DA58892359153400EE368D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA58882359153400EE368D /* Storyboarded.swift */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
@@ -62,11 +63,12 @@
 		A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		A7A1D932235A651200F0BC04 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewController.swift; sourceTree = "<group>"; };
-		A7A1D937235A69F600F0BC04 /* RestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRouter.swift; sourceTree = "<group>"; };
+		A7A1D937235A69F600F0BC04 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		A7A1D93B235A6D2200F0BC04 /* ProductsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListResponse.swift; sourceTree = "<group>"; };
 		A7A1D93D235A70E200F0BC04 /* ProducstListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducstListRequest.swift; sourceTree = "<group>"; };
 		A7A1D93F235A743D00F0BC04 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decodeResponse.swift"; sourceTree = "<group>"; };
+		A7A1D944235B270A00F0BC04 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A7DA5885235911FD00EE368D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7DA58882359153400EE368D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,8 +198,9 @@
 			children = (
 				A7A1D93A235A6C2600F0BC04 /* Responses */,
 				A7A1D939235A6C1C00F0BC04 /* Requests */,
-				A7A1D937235A69F600F0BC04 /* RestRouter.swift */,
+				A7A1D937235A69F600F0BC04 /* APIRouter.swift */,
 				A7A1D93F235A743D00F0BC04 /* APIConstants.swift */,
+				A7A1D944235B270A00F0BC04 /* APIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -418,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A1D938235A69F600F0BC04 /* RestRouter.swift in Sources */,
+				A7A1D938235A69F600F0BC04 /* APIRouter.swift in Sources */,
 				A7A1D940235A743D00F0BC04 /* APIConstants.swift in Sources */,
 				A7A1D943235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift in Sources */,
 				A7A1D93E235A70E200F0BC04 /* ProducstListRequest.swift in Sources */,
@@ -427,6 +430,7 @@
 				A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */,
 				A7DA58892359153400EE368D /* Storyboarded.swift in Sources */,
 				A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */,
+				A7A1D945235B270A00F0BC04 /* APIClient.swift in Sources */,
 				A7A1D933235A651200F0BC04 /* MenuInteractor.swift in Sources */,
 				A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */,
 				A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */,

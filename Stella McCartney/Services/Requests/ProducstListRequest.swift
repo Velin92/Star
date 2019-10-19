@@ -9,7 +9,6 @@
 import Foundation
 
 struct ProductsListRequest: Codable {
-    
     let ave: String
     let productsPerPage: Int
     let gender: String?
