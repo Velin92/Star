@@ -17,24 +17,22 @@ enum APIRouter: URLRequestConvertible {
   case productsList(productsListRequest: ProductsListRequest)
   
   var method: HTTPMethod {
-    switch self
-    {
+    switch self {
     case .productsList:
       return .get
     }
   }
   
   var path: String {
-    switch self
-    {
+    
+    switch self {
     case .productsList:
       return "/Search.API/1.3/SMC_IT/search/results.json"
     }
   }
   
   var encoding: ParameterEncoding {
-    switch method
-    {
+    switch method {
     case .get:
       return URLEncoding.default
     default:

@@ -19,21 +19,23 @@ class MainCoordinator {
     
     func start() {
         let vc = MenuViewController.instantiate()
-        let interactor = MenuInteractor()
-        let vm = MenuViewModel(view: vc, interactor: interactor)
+        let vm = MenuViewModel(view: vc)
         vc.viewModel = vm
         configureMenuViewController(vc)
         navigationController.pushViewController(vc, animated: false)
     }
     
     private func configureMenuViewController(_ viewController: MenuViewController) {
-        viewController.goToProductListClosure = { [weak self] in
-            self?.goToProductList()
+        viewController.goToProductListClosure = { [weak self] productsListType in
+            self?.goToProductList(of: productsListType)
         }
     }
     
-    private func goToProductList() {
+    private func goToProductList(of type: ProductsListType) {
         let vc = ProductsListTableViewController.instantiate()
+        let interactor = ProductsListInteractor(of: type)
+        let vm = ProductsListViewModel(view: vc, interactor: interactor)
+        vc.viewModel = vm
         navigationController.pushViewController(vc, animated: true)
     }
 }

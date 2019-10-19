@@ -19,30 +19,28 @@ protocol MenuViewModelProtocol {
 class MenuViewModel: MenuViewModelProtocol {
     
     private weak var view: MenuViewProtocol!
-    private var interactor: MenuInteractorProtocol
     
-    init(view: MenuViewProtocol, interactor: MenuInteractorProtocol) {
+    init(view: MenuViewProtocol) {
         self.view = view
-        self.interactor = interactor
     }
     
     func tappedOnReadyToWear() {
         //TO DO: call interactor
-        view.goToProductList()
+        view.goToProductList(of: .readyToWear)
     }
     
     func tappedOnLingerie(){
         //TO DO: call interactor
-        view.goToProductList()
+        view.goToProductList(of: .lingerie)
     }
     
     func tappedOnAccessories() {
         //TO DO: call interactor
-        view.goToProductList()
+        view.goToProductList(of: .accessories)
     }
     
     func tappedOnBeauty() {
         //TO DO: call interactor
-        view.goToProductList()
+        view.goToProductList(of: .beauty)
     }
 }

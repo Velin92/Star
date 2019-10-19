@@ -9,14 +9,13 @@
 import Foundation
 import UIKit
 
-protocol ProductsListViewProtocol {
+protocol ProductsListViewProtocol where Self: UIViewController {
     
 }
 
 class ProductsListTableViewController: UITableViewController, Storyboarded {
     
-    //TO DO: Move in a an appropriated class, just used to test the services
-
+    var viewModel: ProductsListViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

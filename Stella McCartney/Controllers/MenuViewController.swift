@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol MenuViewProtocol where Self: UIViewController {
-    func goToProductList()
+    func goToProductList(of type: ProductsListType)
 }
 
 class MenuViewController: UIViewController, Storyboarded {
@@ -20,7 +20,7 @@ class MenuViewController: UIViewController, Storyboarded {
     @IBOutlet weak var readyToWearView: UIView!
     @IBOutlet weak var accessoriesView: UIView!
     
-    var goToProductListClosure: (()->Void)?
+    var goToProductListClosure: ((ProductsListType)->Void)?
     var viewModel: MenuViewModelProtocol!
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class MenuViewController: UIViewController, Storyboarded {
 
 extension MenuViewController: MenuViewProtocol {
     
-    func goToProductList() {
-        goToProductListClosure?()
+    func goToProductList(of type: ProductsListType) {
+        goToProductListClosure?(type)
     }
 }
