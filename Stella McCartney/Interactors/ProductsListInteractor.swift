@@ -19,5 +19,4 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     init(of type: ProductsListType) {
         self.type = type
     }
-    
 }
