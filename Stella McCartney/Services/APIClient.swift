@@ -10,21 +10,21 @@ import Foundation
 import Alamofire
 
 protocol ProductsListAPIClient {
-    static func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void)
+    func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void)
 }
 
-struct APIClient {
+class APIClient {
     
-    private static func request<T: Codable> (_ urlConvertible: URLRequestConvertible, completion: @escaping (AFResult<T>) -> Void) {
+    private func request<T: Codable> (_ urlConvertible: URLRequestConvertible, completion: @escaping (AFResult<T>) -> Void) {
         AF.request(urlConvertible).responseData(completionHandler:{ (dataResponse: AFDataResponse<Data>) in
-            printReposne(response: dataResponse)
+            //self?.printResponse(response: dataResponse)
             let decoder = JSONDecoder()
             let response: AFResult<T> = decoder.decodeResponse(from: dataResponse)
             completion(response)
         })
     }
     
-    private static func printReposne(response: AFDataResponse<Data>) {
+    private func printResponse(response: AFDataResponse<Data>) {
         guard let value = response.value,
             let string = NSString(data: value, encoding: String.Encoding.utf8.rawValue)
             else { return }
@@ -35,12 +35,12 @@ struct APIClient {
 
 extension APIClient: ProductsListAPIClient {
     
-    static func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void) {
+    func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void) {
         let productsListRequest = getRequest(from: type)
         request(APIRouter.productsList(productsListRequest: productsListRequest), completion: completion)
     }
     
-    private static func getRequest(from type: ProductsListType) -> ProductsListRequest {
+    func getRequest(from type: ProductsListType) -> ProductsListRequest {
         switch type {
         case .accessories:
             return ProductsListRequest(ave: "prod", productsPerPage: 50, gender: "D", page: 1, department: "Main_Accessories_All", format: "lite", sortRule: "Ranking")

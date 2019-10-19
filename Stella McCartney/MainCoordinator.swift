@@ -33,7 +33,7 @@ class MainCoordinator {
     
     private func goToProductList(of type: ProductsListType) {
         let vc = ProductsListTableViewController.instantiate()
-        let interactor = ProductsListInteractor(of: type)
+        let interactor = ProductsListInteractor(of: type, service: APIClient())
         let vm = ProductsListViewModel(view: vc, interactor: interactor)
         vc.viewModel = vm
         navigationController.pushViewController(vc, animated: true)

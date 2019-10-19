@@ -24,8 +24,12 @@ class MenuViewController: UIViewController, Storyboarded {
     var viewModel: MenuViewModelProtocol!
     
     override func viewDidLoad() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
         setupGestureRecognizers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupGestureRecognizers() {

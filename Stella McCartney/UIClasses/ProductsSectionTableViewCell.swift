@@ -13,6 +13,17 @@ class ProductsSectionTableViewCell: UITableViewCell {
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var sectionLabel: UILabel!
     
+    var viewState = ProductsSectionViewState(name: "", products: []){
+        didSet {
+            updateCell()
+        }
+    }
+    
+    private func updateCell() {
+        sectionLabel.text = viewState.name
+        productsCollectionView.reloadData()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         productsCollectionView.delegate = self
@@ -23,16 +34,17 @@ class ProductsSectionTableViewCell: UITableViewCell {
 
 extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewState.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCollectionViewCell else {
             fatalError("Collection View Cell not correctly set in the storyboard")
         }
+        let cellViewState =  viewState.products[indexPath.row]
         cell.productImageView.image = UIImage()
-        cell.productNameLabel.text = "Test Nome"
-        cell.productPriceLabel.text = "50€"
+        cell.productNameLabel.text = cellViewState.name
+        cell.productPriceLabel.text = "\(cellViewState.formattedPrice)"
         return cell
     }
     

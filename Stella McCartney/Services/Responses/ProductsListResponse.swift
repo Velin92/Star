@@ -33,7 +33,7 @@ struct Header: Codable {
 // MARK: - ResultsLite
 struct ResultsLite: Codable {
     let totalResults: Int?
-    let items: [Item]?
+    let items: [Product]?
 
     enum CodingKeys: String, CodingKey {
         case totalResults = "TotalResults"
@@ -42,12 +42,14 @@ struct ResultsLite: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Product: Codable {
     let code8: String?
     let brandName: String?
-    let defaultCode10, microCategory, macroCategory: String?
-    let fullPrice, discountedPrice: Int?
-    let modelNames: String?
+    let defaultCode10, macroCategory: String?
+    let microCategory: String
+    let fullPrice: Int
+    let discountedPrice: Int?
+    let modelNames: String
     let sizes: [Size]?
     let colors: [Color]?
 
