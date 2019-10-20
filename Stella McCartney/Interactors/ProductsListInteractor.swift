@@ -21,7 +21,7 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     
     let type: ProductsListType
     let service: ProductsListAPIClient
-    var products = [Product]()
+    var products = [String:Product]()
     
     init(of type: ProductsListType, service: ProductsListAPIClient) {
         self.type = type
@@ -37,7 +37,9 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                     completion(.failure(.genericError))
                     return
                 }
-                self?.products = products
+                products.forEach { product in
+                    self?.products[product.code8] = product
+                }
                 completion(.success(products))
             case .failure:
                 completion(.failure(.genericError))
