@@ -15,21 +15,12 @@ protocol ProductDetailViewProtocol where Self: UIViewController {
 
 class ProductDetailViewController: UIViewController, Storyboarded {
     
-    var product: Product!
+    var viewModel: ProductDetailViewModelProtocol!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        APIClient().productDetail(for: product.code8!) { result in
-            switch result {
-            case .failure:
-                break
-            case .success(let productDetailResponse):
-                print(productDetailResponse)
-                break
-            }
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.loadAdditionalDetails()
     }
-    
 }
 
 extension ProductDetailViewController: ProductDetailViewProtocol {

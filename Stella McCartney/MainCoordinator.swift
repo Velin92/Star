@@ -48,7 +48,9 @@ class MainCoordinator {
     
     private func goToProductDetail(of product: Product) {
         let vc = ProductDetailViewController.instantiate()
-        vc.product = product
+        let interactor = ProductDetailInteractor(product: product, service: APIClient())
+        let vm = ProductDetailViewModel(view: vc, interactor: interactor)
+        vc.viewModel = vm
         navigationController?.pushViewController(vc, animated: true)
     }
 }

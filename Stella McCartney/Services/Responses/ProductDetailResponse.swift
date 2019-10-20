@@ -11,7 +11,7 @@ import Foundation
 // MARK: - ProductDetailResponse
 struct ProductDetailResponse: Codable {
     let header: Header?
-    let item: Item?
+    let item: ProductDetail?
 
     enum CodingKeys: String, CodingKey {
         case header = "Header"
@@ -20,7 +20,7 @@ struct ProductDetailResponse: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct ProductDetail: Codable {
     let customDescription: Bool?
     let authorID, sizeTypeID: Int?
     let gender, seasonOfSale, lastDataRetrieval, salesLineID: String?

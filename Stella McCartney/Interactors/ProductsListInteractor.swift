@@ -41,13 +41,14 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                     completion(.failure(.genericError))
                     return
                 }
-                products.forEach { product in
+                let identifiableProducts = products.filter {$0.code8 != nil}
+                completion(.success(identifiableProducts))
+                identifiableProducts.forEach { product in
                     if let productId = product.code8 {
                         self?.products[productId] = product
                         self?.saveImage(for: productId, of: product)
                     }
                 }
-                completion(.success(products))
             case .failure:
                 completion(.failure(.genericError))
             }
