@@ -12,6 +12,7 @@ struct ProductViewState {
     
     let name: String
     private let price: Int
+    var imageData: Data? = nil
     
     init(name: String, price: Int) {
         self.name = name

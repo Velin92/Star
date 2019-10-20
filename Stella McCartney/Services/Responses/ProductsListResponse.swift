@@ -50,7 +50,7 @@ struct Product: Codable {
     let microCategory: String
     let fullPrice: Int
     let discountedPrice: Int?
-    let modelNames: String
+    let modelNames: String?
     let sizes: [Size]?
     let colors: [Color]?
 

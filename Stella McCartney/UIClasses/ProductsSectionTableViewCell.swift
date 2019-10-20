@@ -14,6 +14,7 @@ class ProductsSectionTableViewCell: UITableViewCell {
     @IBOutlet weak var sectionLabel: UILabel!
     
     var selectedProductClosure: ((Int, UITableViewCell) -> Void)?
+    var downloadProductImageClosure: (())
     
     var viewState = ProductsSectionViewState(name: "", products: []){
         didSet {
@@ -44,7 +45,9 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
             fatalError("Collection View Cell not correctly set in the storyboard")
         }
         let cellViewState =  viewState.products[indexPath.row]
-        cell.productImageView.image = UIImage()
+        if let imageData = cellViewState.imageData {
+            cell.productImageView.image = UIImage(data: imageData)
+        }
         cell.productNameLabel.text = cellViewState.name
         cell.productPriceLabel.text = "\(cellViewState.formattedPrice)"
         return cell

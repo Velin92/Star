@@ -15,6 +15,7 @@ enum ProductsListError: Error {
 protocol ProductsListInteractorProtocol {
     
     func loadProductsList(completion: @escaping ((Result<[Product], ProductsListError>)->Void))
+    var imageDownloadedClosure: ((String,Data) -> Void)? {get set}
 }
 
 class ProductsListInteractor: ProductsListInteractorProtocol {
@@ -23,6 +24,8 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     let service: ProductsListAPIClient
     var products = [String:Product]()
     
+    var imageDownloadedClosure: ((String, Data) -> Void)?
+
     init(of type: ProductsListType, service: ProductsListAPIClient) {
         self.type = type
         self.service = service
@@ -50,6 +53,7 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     }
     
     private func saveImage(for key: String, of product: Product) {
+        let productId = product.code8
         let baseUrl = "https://www.stellamccartney.com/"
         let imageCode = product.defaultCode10
         let folderId = product.defaultCode10.prefix(2)
@@ -60,9 +64,9 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
         guard let url = URL(string: urlPath) else {
             fatalError("url is not formatted right")
         }
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
-                print(data)
+                self?.imageDownloadedClosure?(productId, data)
             }
         }
     }
