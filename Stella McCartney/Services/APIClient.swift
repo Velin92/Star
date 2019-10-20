@@ -14,7 +14,7 @@ protocol ProductsListAPIClient {
 }
 
 protocol ProductDetailAPIClient {
-    func productDetail(for productId: String, completion: @escaping (AFResult<ProductsListResponse>) -> Void)
+    func productDetail(for productId: String, completion: @escaping (AFResult<ProductDetailResponse>) -> Void)
 }
 
 class APIClient {
@@ -59,7 +59,7 @@ extension APIClient: ProductsListAPIClient {
 }
 
 extension APIClient: ProductDetailAPIClient {
-    func productDetail(for productId: String, completion: @escaping (AFResult<ProductsListResponse>) -> Void) {
+    func productDetail(for productId: String, completion: @escaping (AFResult<ProductDetailResponse>) -> Void) {
         request(APIRouter.productDetail(productId: productId), completion: completion)
     }
 }

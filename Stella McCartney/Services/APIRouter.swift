@@ -78,9 +78,7 @@ enum APIRouter: URLRequestConvertible {
     
     private func getConcreteCodables() -> Any {
         switch self {
-        case .productsList(let productsListRequest):
-            return productsListRequest
-        case .productDetail:
+        default:
             fatalError("Not required")
         }
     }
