@@ -38,11 +38,31 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                     return
                 }
                 products.forEach { product in
-                    self?.products[product.code8] = product
+                    let productId = product.code8
+                    self?.products[productId] = product
+                    self?.saveImage(for: productId, of: product)
                 }
                 completion(.success(products))
             case .failure:
                 completion(.failure(.genericError))
+            }
+        }
+    }
+    
+    private func saveImage(for key: String, of product: Product) {
+        let baseUrl = "https://www.stellamccartney.com/"
+        let imageCode = product.defaultCode10
+        let folderId = product.defaultCode10.prefix(2)
+        let resolution = "8"
+        let type = "c"
+        let urlPath = "\(baseUrl)\(folderId)/\(imageCode)_\(resolution)_\(type).jpg"
+        print(urlPath)
+        guard let url = URL(string: urlPath) else {
+            fatalError("url is not formatted right")
+        }
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url) {
+                print(data)
             }
         }
     }

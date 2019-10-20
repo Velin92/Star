@@ -45,7 +45,8 @@ struct ResultsLite: Codable {
 struct Product: Codable {
     let code8: String
     let brandName: String?
-    let defaultCode10, macroCategory: String?
+    let defaultCode10: String
+    let macroCategory: String?
     let microCategory: String
     let fullPrice: Int
     let discountedPrice: Int?
