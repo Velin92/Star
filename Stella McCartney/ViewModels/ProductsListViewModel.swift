@@ -52,12 +52,17 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
         let sectionsSet = Set(products.compactMap {$0.microCategory})
         let orderedSections = sectionsSet.map{$0}.sorted()
         orderedSections.enumerated().forEach { (sectionIndex,section) in
-            let orderedProductsOfSection = products.filter {$0.microCategory == section && $0.modelNames != nil}.sorted(by: {$0.modelNames! <= $1.modelNames!})
+            let filteredProductsOfSection = products.filter {
+                $0.microCategory == section &&
+                $0.modelNames != nil &&
+                $0.fullPrice != nil
+            }
+            let orderedProductsOfSection = filteredProductsOfSection.sorted(by: {$0.modelNames! <= $1.modelNames!})
             var productsViewState = [ProductViewState]()
             orderedProductsOfSection.enumerated().forEach { (arg) in
                 let (productIndex, product) = arg
                 viewIndexesToProductId[IndexPath(item: productIndex, section: sectionIndex)] = product.code8
-                productsViewState.append(ProductViewState(name: product.modelNames!, price: product.fullPrice))
+                productsViewState.append(ProductViewState(name: product.modelNames!, price: product.fullPrice!))
             }
             viewState.productSections.append(ProductsSectionViewState(name: section, products: productsViewState))
         }
@@ -69,7 +74,11 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     
     func selectedProduct(at index: Int, in section: Int){
         let indexPath = IndexPath(item: index, section: section)
-        print(viewIndexesToProductId[indexPath])
+        guard let productId = viewIndexesToProductId[indexPath] else {
+            fatalError("The mapping algorithm has something wrong")
+        }
+        let product = interactor.getProduct(for: productId)
+        view.goToProductDetail(for: product)
     }
     
     

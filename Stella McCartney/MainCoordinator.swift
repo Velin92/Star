@@ -27,15 +27,28 @@ class MainCoordinator {
     
     private func configureMenuViewController(_ viewController: MenuViewController) {
         viewController.goToProductListClosure = { [weak self] productsListType in
-            self?.goToProductList(of: productsListType)
+            self?.goToProductsList(of: productsListType)
         }
     }
     
-    private func goToProductList(of type: ProductsListType) {
+    private func goToProductsList(of type: ProductsListType) {
         let vc = ProductsListTableViewController.instantiate()
         let interactor = ProductsListInteractor(of: type, service: APIClient())
         let vm = ProductsListViewModel(view: vc, interactor: interactor)
         vc.viewModel = vm
+        configureProductsListViewController(vc)
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    private func configureProductsListViewController(_ viewController: ProductsListTableViewController) {
+        viewController.goToProductDetailClosure = { [weak self] product in
+            self?.goToProductDetail(of: product)
+        }
+    }
+    
+    private func goToProductDetail(of product: Product) {
+        let vc = ProductDetailViewController.instantiate()
+        vc.product = product
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

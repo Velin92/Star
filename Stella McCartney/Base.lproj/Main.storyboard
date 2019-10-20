@@ -232,5 +232,20 @@
             </objects>
             <point key="canvasLocation" x="844.92753623188412" y="137.94642857142856"/>
         </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="Q0o-Le-VB8">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailViewController" id="42F-A2-O4k" customClass="ProductDetailViewController" customModule="Stella_McCartney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="76i-gC-sgV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="MNn-Mt-kaU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxr-O9-yZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="137"/>
+        </scene>
     </scenes>
 </document>

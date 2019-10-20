@@ -16,6 +16,7 @@ protocol ProductsListInteractorProtocol {
     
     func loadProductsList(completion: @escaping ((Result<[Product], ProductsListError>)->Void))
     var imageDownloadedClosure: ((String,Data) -> Void)? {get set}
+    func getProduct(for productId: String) -> Product
 }
 
 class ProductsListInteractor: ProductsListInteractorProtocol {
@@ -41,9 +42,10 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                     return
                 }
                 products.forEach { product in
-                    let productId = product.code8
-                    self?.products[productId] = product
-                    self?.saveImage(for: productId, of: product)
+                    if let productId = product.code8 {
+                        self?.products[productId] = product
+                        self?.saveImage(for: productId, of: product)
+                    }
                 }
                 completion(.success(products))
             case .failure:
@@ -53,21 +55,27 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     }
     
     private func saveImage(for key: String, of product: Product) {
-        let productId = product.code8
+        guard let imageCode = product.defaultCode10, let productId = product.code8 else {return}
         let baseUrl = "https://www.stellamccartney.com/"
-        let imageCode = product.defaultCode10
-        let folderId = product.defaultCode10.prefix(2)
+        let folderId = imageCode.prefix(2)
         let resolution = "8"
         let type = "c"
         let urlPath = "\(baseUrl)\(folderId)/\(imageCode)_\(resolution)_\(type).jpg"
         print(urlPath)
         guard let url = URL(string: urlPath) else {
-            fatalError("url is not formatted right")
+            fatalError("Url is not formatted in the right way")
         }
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 self?.imageDownloadedClosure?(productId, data)
             }
         }
+    }
+    
+    func getProduct(for productId: String) -> Product {
+        guard let product = products[productId] else {
+            fatalError("The mapping algorithm has something wrong")
+        }
+        return product
     }
 }

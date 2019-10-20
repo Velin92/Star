@@ -11,11 +11,13 @@ import UIKit
 
 protocol ProductsListViewProtocol where Self: UIViewController {
     var viewState: ProductsListViewState {get set}
+    func goToProductDetail(for product: Product)
 }
 
-class ProductsListTableViewController: UITableViewController, Storyboarded, ProductsListViewProtocol {
+class ProductsListTableViewController: UITableViewController, Storyboarded {
     
     var viewModel: ProductsListViewModelProtocol!
+    var goToProductDetailClosure: ((Product)->Void)?
     
     var viewState = ProductsListViewState(productSections: []){
         didSet {
@@ -31,12 +33,12 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Prod
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadProductsList()
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.loadProductsList()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,5 +69,12 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Prod
             fatalError("Error something is wrong, this indexPath should exist")
         }
         viewModel.selectedProduct(at: index, in: indexPath.row)
+    }
+}
+
+extension ProductsListTableViewController: ProductsListViewProtocol {
+    
+    func goToProductDetail(for product: Product) {
+        goToProductDetailClosure?(product)
     }
 }

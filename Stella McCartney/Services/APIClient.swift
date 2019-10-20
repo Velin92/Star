@@ -13,6 +13,10 @@ protocol ProductsListAPIClient {
     func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void)
 }
 
+protocol ProductDetailAPIClient {
+    func productDetail(for productId: String, completion: @escaping (AFResult<ProductsListResponse>) -> Void)
+}
+
 class APIClient {
     
     private func request<T: Codable> (_ urlConvertible: URLRequestConvertible, completion: @escaping (AFResult<T>) -> Void) {
@@ -50,7 +54,12 @@ extension APIClient: ProductsListAPIClient {
             return ProductsListRequest(ave: "prod", productsPerPage: 50, gender: "D", page: 1, department: "Main_Beauty", format: "lite", sortRule: "Ranking")
         case .lingerie:
             return ProductsListRequest(ave: "prod", productsPerPage: 50, gender: nil, page: 1, department: "Main_Lingerie", format: "lite", sortRule: "Ranking")
-            
         }
+    }
+}
+
+extension APIClient: ProductDetailAPIClient {
+    func productDetail(for productId: String, completion: @escaping (AFResult<ProductsListResponse>) -> Void) {
+        request(APIRouter.productDetail(productId: productId), completion: completion)
     }
 }

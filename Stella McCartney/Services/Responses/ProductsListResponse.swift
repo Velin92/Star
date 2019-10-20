@@ -19,17 +19,6 @@ struct ProductsListResponse: Codable {
     }
 }
 
-// MARK: - Header
-struct Header: Codable {
-    let statusCode: Int?
-    let headerDescription: String?
-
-    enum CodingKeys: String, CodingKey {
-        case statusCode = "StatusCode"
-        case headerDescription = "Description"
-    }
-}
-
 // MARK: - ResultsLite
 struct ResultsLite: Codable {
     let totalResults: Int?
@@ -43,12 +32,12 @@ struct ResultsLite: Codable {
 
 // MARK: - Item
 struct Product: Codable {
-    let code8: String
+    let code8: String?
     let brandName: String?
-    let defaultCode10: String
+    let defaultCode10: String?
     let macroCategory: String?
-    let microCategory: String
-    let fullPrice: Int
+    let microCategory: String?
+    let fullPrice: Int?
     let discountedPrice: Int?
     let modelNames: String?
     let sizes: [Size]?
