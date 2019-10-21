@@ -118,17 +118,17 @@ class ImageService {
         for imageUrl in imageUrls {
             serviceGroup.enter()
             let block = DispatchWorkItem(flags: .inheritQoS) {
-                    if let data = try? Data(contentsOf: imageUrl.value) {
-                        results[imageUrl.key] = data
-                    } else {
-                        print("imageData for \(imageUrl.value) is nil")
-                    }
-                    serviceGroup.leave()
+                if let data = try? Data(contentsOf: imageUrl.value), data.imageFormat == .jpg {
+                    results[imageUrl.key] = data
+                } else {
+                    print("imageData for \(imageUrl.value) is nil")
+                }
+                serviceGroup.leave()
             }
             blocks.append(block)
             DispatchQueue.global().async(execute: block)
         }
-         serviceGroup.notify(queue: DispatchQueue.main) {
+        serviceGroup.notify(queue: DispatchQueue.main) {
             completion(results)
         }
     }
