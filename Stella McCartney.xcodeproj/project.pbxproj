@@ -35,6 +35,8 @@
 		A7A1D961235CD63900F0BC04 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D960235CD63900F0BC04 /* ProductDetailViewController.swift */; };
 		A7A1D963235CEEB000F0BC04 /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D962235CEEB000F0BC04 /* ProductDetailInteractor.swift */; };
 		A7A1D965235CEFC600F0BC04 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D964235CEFC600F0BC04 /* ProductDetailViewModel.swift */; };
+		A7A1D967235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D966235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift */; };
+		A7A1D969235D205800F0BC04 /* ProductImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D968235D205800F0BC04 /* ProductImageCollectionViewCell.swift */; };
 		A7DA5886235911FD00EE368D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA5885235911FD00EE368D /* MainCoordinator.swift */; };
 		A7DA58892359153400EE368D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA58882359153400EE368D /* Storyboarded.swift */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
@@ -93,6 +95,8 @@
 		A7A1D960235CD63900F0BC04 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		A7A1D962235CEEB000F0BC04 /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
 		A7A1D964235CEFC600F0BC04 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		A7A1D966235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesFlowLayout.swift; sourceTree = "<group>"; };
+		A7A1D968235D205800F0BC04 /* ProductImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A7DA5885235911FD00EE368D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7DA58882359153400EE368D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +279,8 @@
 			children = (
 				A7A1D951235B735600F0BC04 /* ProductsSectionTableViewCell.swift */,
 				A7A1D953235B783800F0BC04 /* ProductCollectionViewCell.swift */,
+				A7A1D966235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift */,
+				A7A1D968235D205800F0BC04 /* ProductImageCollectionViewCell.swift */,
 			);
 			path = UIClasses;
 			sourceTree = "<group>";
@@ -497,10 +503,12 @@
 				A7A1D945235B270A00F0BC04 /* APIClient.swift in Sources */,
 				A7A1D956235B854500F0BC04 /* ProductViewState.swift in Sources */,
 				A7A1D963235CEEB000F0BC04 /* ProductDetailInteractor.swift in Sources */,
+				A7A1D969235D205800F0BC04 /* ProductImageCollectionViewCell.swift in Sources */,
 				A7A1D961235CD63900F0BC04 /* ProductDetailViewController.swift in Sources */,
 				A7A1D958235B858C00F0BC04 /* ProductsSectionViewState.swift in Sources */,
 				A7A1D95F235CCFA700F0BC04 /* Header.swift in Sources */,
 				A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */,
+				A7A1D967235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift in Sources */,
 				A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */,
 				A7A1D954235B783800F0BC04 /* ProductCollectionViewCell.swift in Sources */,
 				A7A1D952235B735600F0BC04 /* ProductsSectionTableViewCell.swift in Sources */,
