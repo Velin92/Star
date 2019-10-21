@@ -8,7 +8,12 @@
 
 import Foundation
 
-enum ImageTypes {
+enum ImageTypes: Comparable, CaseIterable {
+    
+    static func < (lhs: ImageTypes, rhs: ImageTypes) -> Bool {
+        return allCases.firstIndex(of: lhs)! < allCases.firstIndex(of: rhs)!
+    }
+    
     case front
     case rear
     case detailH
@@ -80,11 +85,21 @@ class ImageService {
         let url = generateImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: url) {
-                    completion(data)
+                completion(data)
             } else {
                 print("imageData for \(code) is nil")
             }
         }
+    }
+    
+    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void) ) {
+        let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
+        let tuples = ImageTypes.allCases.map { (type: ImageTypes) -> (ImageTypes, URL) in
+            let url =  generateImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)
+            return (type, url)
+        }
+        let imageUrls = [ImageTypes:URL](uniqueKeysWithValues: tuples)
+        downloadImages(from: imageUrls, completion: completion)
     }
     
     private func generateImageUrl(for code: String, imageTypeCode: String, resolutionCode: String) -> URL {
@@ -96,4 +111,25 @@ class ImageService {
         return url
     }
     
+    private func downloadImages(from imageUrls: [ImageTypes : URL], completion: @escaping (([ImageTypes : Data])-> Void)) {
+        let serviceGroup = DispatchGroup()
+        var blocks: [DispatchWorkItem] = []
+        var results: [ImageTypes : Data] = [:]
+        for imageUrl in imageUrls {
+            serviceGroup.enter()
+            let block = DispatchWorkItem(flags: .inheritQoS) {
+                    if let data = try? Data(contentsOf: imageUrl.value) {
+                        results[imageUrl.key] = data
+                    } else {
+                        print("imageData for \(imageUrl.value) is nil")
+                    }
+                    serviceGroup.leave()
+            }
+            blocks.append(block)
+            DispatchQueue.global().async(execute: block)
+        }
+         serviceGroup.notify(queue: DispatchQueue.main) {
+            completion(results)
+        }
+    }
 }

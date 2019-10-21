@@ -9,20 +9,30 @@
 import Foundation
 
 protocol ProductDetailViewModelProtocol {
-    func loadAdditionalDetails()
+    func loadView()
 }
 
 class ProductDetailViewModel: ProductDetailViewModelProtocol {
     
     weak var view: ProductDetailViewProtocol!
     var interactor: ProductDetailInteractorProtocol
+    var viewState = ProductDetailViewState()
     
     init(view: ProductDetailViewProtocol, interactor: ProductDetailInteractorProtocol) {
         self.view = view
         self.interactor = interactor
     }
     
-    func loadAdditionalDetails(){
-        interactor.loadProductDetail()
+    func loadView() {
+        interactor.loadProductAdditionalDetails()
+        interactor.loadImages() { [weak self] datas in
+            self?.viewState.imageDatas = datas
+            self?.updateViewState()
+        }
     }
+    
+    private func updateViewState() {
+        view.viewState = viewState
+    }
+    
 }

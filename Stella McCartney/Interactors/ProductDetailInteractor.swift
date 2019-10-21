@@ -13,7 +13,8 @@ enum ProductDetailError: Error {
 }
 
 protocol ProductDetailInteractorProtocol {
-    func loadProductDetail()
+    func loadProductAdditionalDetails()
+    func loadImages(completion: @escaping (([Data])-> Void))
 }
 
 class ProductDetailInteractor: ProductDetailInteractorProtocol {
@@ -28,7 +29,7 @@ class ProductDetailInteractor: ProductDetailInteractorProtocol {
         self.service = service
     }
     
-    func loadProductDetail() {
+    func loadProductAdditionalDetails() {
         service.productDetail(for: product.code8!) { result in
             switch result {
             case .success(let productDetailResponse):
@@ -40,6 +41,16 @@ class ProductDetailInteractor: ProductDetailInteractorProtocol {
             case .failure:
                 break
             }
+        }
+    }
+    
+    func loadImages(completion: @escaping (([Data]) -> Void)) {
+        guard let imageCode =  product.defaultCode10 else {
+            return completion([])
+        }
+        ImageService().loadAllImages(for: imageCode, pixels: 101) { results in
+            let datas = results.sorted {$0.key < $1.key}.map {$0.value}
+            completion(datas)
         }
     }
 }

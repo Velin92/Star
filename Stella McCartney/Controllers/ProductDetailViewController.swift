@@ -10,19 +10,28 @@ import Foundation
 import UIKit
 
 protocol ProductDetailViewProtocol where Self: UIViewController {
-    
+    var viewState: ProductDetailViewState {get set}
 }
 
 class ProductDetailViewController: UIViewController, Storyboarded {
     
-    @IBOutlet weak var productImagesCollectionView: UICollectionView!
-    
     var viewModel: ProductDetailViewModelProtocol!
+    var imagesCollectionDSD = ProductImagesCollectionDataSourceDelegate()
+    var viewState = ProductDetailViewState() {
+        didSet {
+            imagesCollectionDSD.imageDatas = viewState.imageDatas
+            DispatchQueue.main.async {
+                self.productImagesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    @IBOutlet weak var productImagesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       setupProductImagesCollectionView()
-        viewModel.loadAdditionalDetails()
+        setupProductImagesCollectionView()
+        viewModel.loadView()
     }
     
     private func setupProductImagesCollectionView() {
@@ -30,32 +39,9 @@ class ProductDetailViewController: UIViewController, Storyboarded {
         if #available(iOS 11.0, *) {
             productImagesCollectionView.contentInsetAdjustmentBehavior = .always
         }
-        productImagesCollectionView.delegate = self
-        productImagesCollectionView.dataSource = self
+        productImagesCollectionView.delegate = imagesCollectionDSD
+        productImagesCollectionView.dataSource = imagesCollectionDSD
     }
-}
-
-extension ProductDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductImageCell", for: indexPath) as? ProductImageCollectionViewCell else {
-            fatalError("Cell is not setup correctly in storyboard")
-        }
-        return cell
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 70, height: 70)
-    }
-    
 }
 
 extension ProductDetailViewController: ProductDetailViewProtocol {
