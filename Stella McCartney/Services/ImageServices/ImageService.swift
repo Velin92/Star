@@ -75,7 +75,15 @@ enum ImageResolutions: Int, CaseIterable {
     }
 }
 
-class ImageService {
+protocol ProductsListImageService {
+    func loadImage(for code: String, imageType: ImageTypes, pixels: Int, completion: @escaping ((Data)-> Void))
+}
+
+protocol ProductDetailImageService {
+    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void) )
+}
+
+class ImageService: ProductsListImageService, ProductDetailImageService {
     
     static let baseUrl = "https://www.stellamccartney.com/"
     
@@ -99,7 +107,7 @@ class ImageService {
         }
     }
     
-    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void) ) {
+    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void)) {
         let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
         let tuples = ImageTypes.allCases.map { (type: ImageTypes) -> (ImageTypes, URL) in
             let url =  generateJpegImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)

@@ -19,18 +19,20 @@ protocol ProductDetailInteractorProtocol {
 
 class ProductDetailInteractor: ProductDetailInteractorProtocol {
     
-    let service: ProductDetailAPIClient
+    let apiService: ProductDetailAPIClient
+    let imageService: ProductDetailImageService
     
     //I know for sure that this product has at least code8, modelNames, microCategory and fullPrice
     let product: Product
     
-    init(product: Product, service: ProductDetailAPIClient) {
+    init(product: Product, apiService: ProductDetailAPIClient, imageService: ProductDetailImageService) {
         self.product = product
-        self.service = service
+        self.apiService = apiService
+        self.imageService = imageService
     }
     
     func loadProductAdditionalDetails() {
-        service.productDetail(for: product.code8!) { result in
+        apiService.productDetail(for: product.code8!) { result in
             switch result {
             case .success(let productDetailResponse):
                 guard productDetailResponse.header?.statusCode == 200,
@@ -48,7 +50,7 @@ class ProductDetailInteractor: ProductDetailInteractorProtocol {
         guard let imageCode =  product.defaultCode10 else {
             return completion([])
         }
-        ImageService().loadAllImages(for: imageCode, pixels: 101) { results in
+        imageService.loadAllImages(for: imageCode, pixels: 101) { results in
             let datas = results.sorted {$0.key < $1.key}.map {$0.value}
             completion(datas)
         }

@@ -22,18 +22,20 @@ protocol ProductsListInteractorProtocol {
 class ProductsListInteractor: ProductsListInteractorProtocol {
     
     let type: ProductsListType
-    let service: ProductsListAPIClient
+    let apiService: ProductsListAPIClient
+    let imageService: ProductsListImageService
     var products = [String:Product]()
     
     var imageDownloadedClosure: ((String, Data) -> Void)?
 
-    init(of type: ProductsListType, service: ProductsListAPIClient) {
+    init(of type: ProductsListType, apiService: ProductsListAPIClient, imageService: ProductsListImageService) {
         self.type = type
-        self.service = service
+        self.apiService = apiService
+        self.imageService = imageService
     }
     
     func loadProductsList(completion: @escaping ((Result<[Product], ProductsListError>)->Void)){
-        service.productsList(of: type) { [weak self] result in
+        apiService.productsList(of: type) { [weak self] result in
             switch result {
             case .success(let productsListResponse):
                 guard productsListResponse.header?.statusCode == 200,
@@ -57,7 +59,7 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     
     private func saveImage(for key: String, of product: Product) {
         guard let imageCode = product.defaultCode10, let productId = product.code8 else {return}
-        ImageService().loadImage(for: imageCode, imageType: .front, pixels: 101) { [weak self] data in
+        imageService.loadImage(for: imageCode, imageType: .front, pixels: 101) { [weak self] data in
             self?.imageDownloadedClosure?(productId, data)
         }
     }

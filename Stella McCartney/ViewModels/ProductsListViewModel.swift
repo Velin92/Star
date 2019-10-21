@@ -80,6 +80,4 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
         let product = interactor.getProduct(for: productId)
         view.goToProductDetail(for: product)
     }
-    
-    
 }

@@ -18,14 +18,12 @@ enum StorageError: Error {
 }
 
 class CacheStorage {
-    private let queue: DispatchQueue
     private let fileManager: FileManager
     private let path: String
     private var urlPath: URL!
     
-    init?(path: String, queue: DispatchQueue = .init(label: "LocalStorage.Queue"), fileManager: FileManager = FileManager.default) {
+    init?(path: String, fileManager: FileManager = FileManager.default) {
         self.path = path
-        self.queue = queue
         self.fileManager = fileManager
         if let urlPath = generatePathURL() {
             self.urlPath = urlPath
@@ -76,6 +74,5 @@ extension CacheStorage {
         }
         return data
     }
-    
 }
 

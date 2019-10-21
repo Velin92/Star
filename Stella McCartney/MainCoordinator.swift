@@ -33,7 +33,9 @@ class MainCoordinator {
     
     private func goToProductsList(of type: ProductsListType) {
         let vc = ProductsListTableViewController.instantiate()
-        let interactor = ProductsListInteractor(of: type, service: APIClient())
+        let apiService = APIClient()
+        let imageService = ImageService()
+        let interactor = ProductsListInteractor(of: type, apiService: apiService, imageService: imageService)
         let vm = ProductsListViewModel(view: vc, interactor: interactor)
         vc.viewModel = vm
         configureProductsListViewController(vc)
@@ -48,7 +50,9 @@ class MainCoordinator {
     
     private func goToProductDetail(of product: Product) {
         let vc = ProductDetailViewController.instantiate()
-        let interactor = ProductDetailInteractor(product: product, service: APIClient())
+        let apiService = APIClient()
+        let imageService = ImageService()
+        let interactor = ProductDetailInteractor(product: product, apiService: apiService, imageService: imageService)
         let vm = ProductDetailViewModel(view: vc, interactor: interactor)
         vc.viewModel = vm
         navigationController?.pushViewController(vc, animated: true)
