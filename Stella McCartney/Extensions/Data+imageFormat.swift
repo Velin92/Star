@@ -6,6 +6,19 @@
 //  Copyright © 2019 Mauro Romito. All rights reserved.
 //
 
+/*   SIGNATURE                 |           FORMAT                __________________________________________________________________
+ÿØÿÛ                           |
+ÿØÿà..JFIF..                   |           jpeg or jpg
+ÿØÿá..Exif..                   |
+__________________________________________________________________
+.PNG....                       |           png
+__________________________________________________________________
+GIF87a                         |           gif
+GIF89a                         |
+__________________________________________________________________
+RIFF....WEBP                   |           webp
+*/
+
 import Foundation
 
 enum ImageFormat {
@@ -36,7 +49,6 @@ extension Data {
                 return .unknown
             }
         }
-        
         return .unknown
     }
 }

@@ -79,15 +79,22 @@ class ImageService {
     
     static let baseUrl = "https://www.stellamccartney.com/"
     
+    let storage: CacheStorage? = CacheStorage(path: "images")
+    
     func loadImage(for code: String, imageType: ImageTypes, pixels: Int, completion: @escaping ((Data)-> Void)) {
         let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
         let typeCode = imageType.code
-        let url = generateImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
-                completion(data)
-            } else {
-                print("imageData for \(code) is nil")
+        let url = generateJpegImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
+        if let data = try? storage?.load(for: url.absoluteString) {
+            completion(data)
+        } else {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), data.imageFormat == .jpg {
+                    try? self.storage?.save(value: data, for: url.absoluteString)
+                    completion(data)
+                } else {
+                    print("imageData for \(code) is nil")
+                }
             }
         }
     }
@@ -95,14 +102,14 @@ class ImageService {
     func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void) ) {
         let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
         let tuples = ImageTypes.allCases.map { (type: ImageTypes) -> (ImageTypes, URL) in
-            let url =  generateImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)
+            let url =  generateJpegImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)
             return (type, url)
         }
         let imageUrls = [ImageTypes:URL](uniqueKeysWithValues: tuples)
-        downloadImages(from: imageUrls, completion: completion)
+        downloadJpegImages(from: imageUrls, completion: completion)
     }
     
-    private func generateImageUrl(for code: String, imageTypeCode: String, resolutionCode: String) -> URL {
+    private func generateJpegImageUrl(for code: String, imageTypeCode: String, resolutionCode: String) -> URL {
         let folderId = code.prefix(2)
         let urlPath = "\(ImageService.baseUrl)\(folderId)/\(code)_\(resolutionCode)_\(imageTypeCode).jpg"
         guard let url = URL(string: urlPath) else {
@@ -111,7 +118,7 @@ class ImageService {
         return url
     }
     
-    private func downloadImages(from imageUrls: [ImageTypes : URL], completion: @escaping (([ImageTypes : Data])-> Void)) {
+    private func downloadJpegImages(from imageUrls: [ImageTypes : URL], completion: @escaping (([ImageTypes : Data])-> Void)) {
         let serviceGroup = DispatchGroup()
         var blocks: [DispatchWorkItem] = []
         var results: [ImageTypes : Data] = [:]

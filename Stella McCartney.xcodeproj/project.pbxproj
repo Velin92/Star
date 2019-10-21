@@ -44,6 +44,7 @@
 		A7DA58892359153400EE368D /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA58882359153400EE368D /* Storyboarded.swift */; };
 		A7DD48AB235E5E95003321B4 /* Data+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AA235E5E95003321B4 /* Data+imageFormat.swift */; };
 		A7DD48AD235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */; };
+		A7DD48AF235E65F2003321B4 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AE235E65F2003321B4 /* CacheStorage.swift */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		A7DA58882359153400EE368D /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A7DD48AA235E5E95003321B4 /* Data+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+imageFormat.swift"; sourceTree = "<group>"; };
 		A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+caseAndDiacriticInsensitiveContain.swift"; sourceTree = "<group>"; };
+		A7DD48AE235E65F2003321B4 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7E8DB2538E5D4EA0E6CE50 /* Pods-Stella McCartney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartney.release.xcconfig"; path = "Target Support Files/Pods-Stella McCartney/Pods-Stella McCartney.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,12 +261,10 @@
 		A7A1D936235A69B400F0BC04 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7DD48B1235E6618003321B4 /* ImageServices */,
+				A7DD48B0235E65F8003321B4 /* APIServices */,
 				A7A1D93A235A6C2600F0BC04 /* Responses */,
 				A7A1D939235A6C1C00F0BC04 /* Requests */,
-				A7A1D937235A69F600F0BC04 /* APIRouter.swift */,
-				A7A1D93F235A743D00F0BC04 /* APIConstants.swift */,
-				A7A1D944235B270A00F0BC04 /* APIClient.swift */,
-				A7A0E6AC235E3CEE0002444F /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -332,6 +332,25 @@
 				A7DA58882359153400EE368D /* Storyboarded.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A7DD48B0235E65F8003321B4 /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1D944235B270A00F0BC04 /* APIClient.swift */,
+				A7A1D93F235A743D00F0BC04 /* APIConstants.swift */,
+				A7A1D937235A69F600F0BC04 /* APIRouter.swift */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		A7DD48B1235E6618003321B4 /* ImageServices */ = {
+			isa = PBXGroup;
+			children = (
+				A7DD48AE235E65F2003321B4 /* CacheStorage.swift */,
+				A7A0E6AC235E3CEE0002444F /* ImageService.swift */,
+			);
+			path = ImageServices;
 			sourceTree = "<group>";
 		};
 		B61BCFF0B84AD916E7A2D85A /* Pods */ = {
@@ -533,6 +552,7 @@
 				A7DA58892359153400EE368D /* Storyboarded.swift in Sources */,
 				A7A1D948235B5ACB00F0BC04 /* ProductsListType.swift in Sources */,
 				A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */,
+				A7DD48AF235E65F2003321B4 /* CacheStorage.swift in Sources */,
 				A7A0E6AD235E3CEE0002444F /* ImageService.swift in Sources */,
 				A7A1D945235B270A00F0BC04 /* APIClient.swift in Sources */,
 				A7A0E6AF235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift in Sources */,
