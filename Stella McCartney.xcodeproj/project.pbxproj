@@ -13,6 +13,7 @@
 		A72DCE3523590B6000910862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72DCE3323590B6000910862 /* LaunchScreen.storyboard */; };
 		A72DCE4023590B6000910862 /* Stella_McCartneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE3F23590B6000910862 /* Stella_McCartneyTests.swift */; };
 		A72DCE4B23590B6000910862 /* Stella_McCartneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */; };
+		A7A0E6AD235E3CEE0002444F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6AC235E3CEE0002444F /* ImageService.swift */; };
 		A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D92A235A4E9300F0BC04 /* MenuViewController.swift */; };
 		A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */; };
 		A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */; };
@@ -73,6 +74,7 @@
 		A72DCE4623590B6000910862 /* Stella McCartneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stella McCartneyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stella_McCartneyUITests.swift; sourceTree = "<group>"; };
 		A72DCE4C23590B6000910862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A0E6AC235E3CEE0002444F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		A7A1D92A235A4E9300F0BC04 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A7A1D92F235A63A000F0BC04 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		A7A1D934235A66FF00F0BC04 /* ProductsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				A7A1D937235A69F600F0BC04 /* APIRouter.swift */,
 				A7A1D93F235A743D00F0BC04 /* APIConstants.swift */,
 				A7A1D944235B270A00F0BC04 /* APIClient.swift */,
+				A7A0E6AC235E3CEE0002444F /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				A7DA58892359153400EE368D /* Storyboarded.swift in Sources */,
 				A7A1D948235B5ACB00F0BC04 /* ProductsListType.swift in Sources */,
 				A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */,
+				A7A0E6AD235E3CEE0002444F /* ImageService.swift in Sources */,
 				A7A1D945235B270A00F0BC04 /* APIClient.swift in Sources */,
 				A7A1D956235B854500F0BC04 /* ProductViewState.swift in Sources */,
 				A7A1D963235CEEB000F0BC04 /* ProductDetailInteractor.swift in Sources */,

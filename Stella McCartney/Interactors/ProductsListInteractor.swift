@@ -57,19 +57,8 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     
     private func saveImage(for key: String, of product: Product) {
         guard let imageCode = product.defaultCode10, let productId = product.code8 else {return}
-        let baseUrl = "https://www.stellamccartney.com/"
-        let folderId = imageCode.prefix(2)
-        let resolution = "8"
-        let type = "c"
-        let urlPath = "\(baseUrl)\(folderId)/\(imageCode)_\(resolution)_\(type).jpg"
-        print(urlPath)
-        guard let url = URL(string: urlPath) else {
-            fatalError("Url is not formatted in the right way")
-        }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                self?.imageDownloadedClosure?(productId, data)
-            }
+        ImageService().loadImage(for: imageCode, imageType: .front, pixels: 101) { [weak self] data in
+            self?.imageDownloadedClosure?(productId, data)
         }
     }
     

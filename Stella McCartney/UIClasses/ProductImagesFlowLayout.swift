@@ -13,10 +13,10 @@ class ProductImagesFlowLayout: UICollectionViewFlowLayout {
     
     var activeDistance: CGFloat = 0
     
-    //where 1 example is +100% size at center
+    //where 1 for example is +100% size at center
     let zoomFactor: CGFloat = 1
     
-    //complementary value of alpha 0.7 means that you have 30% of alpha outside center
+    //complementary value of alpha, example 0.7 means that you have 30% of alpha outside center
     let transparencyFactor: CGFloat = 0.7
     
     override init() {
