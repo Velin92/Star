@@ -14,7 +14,7 @@ enum ProductDetailError: Error {
 
 protocol ProductDetailInteractorProtocol {
     var product: Product {get}
-    func loadProductAdditionalDetails()
+    func loadProductAdditionalDetails(completion: @escaping ((Result<ProductDetail, ProductDetailError>)->Void))
     func loadImages(completion: @escaping (([Data])-> Void))
 }
 
@@ -32,17 +32,18 @@ class ProductDetailInteractor: ProductDetailInteractorProtocol {
         self.imageService = imageService
     }
     
-    func loadProductAdditionalDetails() {
+    func loadProductAdditionalDetails(completion: @escaping ((Result<ProductDetail, ProductDetailError>)->Void)) {
         apiService.productDetail(for: product.code8!) { result in
             switch result {
             case .success(let productDetailResponse):
                 guard productDetailResponse.header?.statusCode == 200,
                     let productDetail = productDetailResponse.item else {
+                        completion(.failure(.genericError))
                         return
                 }
-                print(productDetail)
+                completion(.success(productDetail))
             case .failure:
-                break
+                completion(.failure(.genericError))
             }
         }
     }

@@ -24,14 +24,19 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     
     var viewModel: ProductDetailViewModelProtocol!
     var imagesCollectionDSD = ProductImagesCollectionDataSourceDelegate()
+    var colorsCollectionDSD = ProductColorsCollectionDataSourceDelegate()
     var viewState = ProductDetailViewState(modelName: "", fullPrice: 0) {
         didSet {
-            imagesCollectionDSD.imageDatas = viewState.imageDatas
+            updateDataSources()
             DispatchQueue.main.async {
                 self.updateView()
-                self.productImagesCollectionView.reloadData()
             }
         }
+    }
+    
+    private func updateDataSources() {
+        imagesCollectionDSD.imageDatas = viewState.imageDatas
+        colorsCollectionDSD.cellViewStates = viewState.colors
     }
     
     private func updateView() {
@@ -46,12 +51,24 @@ class ProductDetailViewController: UIViewController, Storyboarded {
             discountedPriceLabel.isHidden = true
         }
         priceLabel.attributedText = mutableAttributedString
+        self.productImagesCollectionView.reloadData()
+        self.colorsCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupProductImagesCollectionView()
+        setupCollectionViews()
         viewModel.loadView()
+    }
+    
+    private func setupCollectionViews() {
+        setupProductImagesCollectionView()
+        setupColorsCollectionView()
+    }
+    
+    private func setupColorsCollectionView() {
+        colorsCollectionView.delegate = colorsCollectionDSD
+        colorsCollectionView.dataSource = colorsCollectionDSD
     }
     
     private func setupProductImagesCollectionView() {

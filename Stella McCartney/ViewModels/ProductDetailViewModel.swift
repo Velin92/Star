@@ -31,6 +31,23 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
             self?.viewState.imageDatas = datas
             self?.updateViewState()
         }
+        interactor.loadProductAdditionalDetails { [weak self] result in
+            switch result {
+            case .success(let productDetail):
+                if let colors = productDetail.modelColors {
+                    print(colors)
+                    self?.viewState.colors = colors.compactMap { color in
+                        guard let colorName = color.colorDescription, let rgbColor = color.rgb else{
+                            return nil
+                        }
+                        return ProductColorViewState(colorName: colorName, rgbColor: rgbColor)
+                    }
+                }
+                self?.updateViewState()
+            case .failure:
+                break
+            }
+        }
     }
     
     private func updateViewState() {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A712D5B6235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B5235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift */; };
+		A712D5B8235F522100EAD45E /* UIColor+hexStringToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B7235F522100EAD45E /* UIColor+hexStringToUIColor.swift */; };
+		A712D5BA235F56BE00EAD45E /* ProductColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B9235F56BE00EAD45E /* ProductColorCollectionViewCell.swift */; };
+		A712D5BC235F595A00EAD45E /* ProductColorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5BB235F595A00EAD45E /* ProductColorViewState.swift */; };
 		A72DCE2923590B5F00910862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE2823590B5F00910862 /* AppDelegate.swift */; };
 		A72DCE3023590B5F00910862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72DCE2E23590B5F00910862 /* Main.storyboard */; };
 		A72DCE3223590B6000910862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72DCE3123590B6000910862 /* Assets.xcassets */; };
@@ -67,6 +71,10 @@
 
 /* Begin PBXFileReference section */
 		344A7BDBE1D21D984EFBEDFA /* Pods-Stella McCartney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartney.debug.xcconfig"; path = "Target Support Files/Pods-Stella McCartney/Pods-Stella McCartney.debug.xcconfig"; sourceTree = "<group>"; };
+		A712D5B5235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducrColorsCollectionDataSourceDelegate.swift; sourceTree = "<group>"; };
+		A712D5B7235F522100EAD45E /* UIColor+hexStringToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexStringToUIColor.swift"; sourceTree = "<group>"; };
+		A712D5B9235F56BE00EAD45E /* ProductColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		A712D5BB235F595A00EAD45E /* ProductColorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColorViewState.swift; sourceTree = "<group>"; };
 		A72DCE2523590B5F00910862 /* Stella McCartney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stella McCartney.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72DCE2823590B5F00910862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A72DCE2F23590B5F00910862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 				A7A1D968235D205800F0BC04 /* ProductImageCollectionViewCell.swift */,
 				A7A1D953235B783800F0BC04 /* ProductCollectionViewCell.swift */,
 				A7A1D951235B735600F0BC04 /* ProductsSectionTableViewCell.swift */,
+				A712D5B9235F56BE00EAD45E /* ProductColorCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -224,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A0E6AE235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift */,
+				A712D5B5235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift */,
 			);
 			path = DataSourceDelegates;
 			sourceTree = "<group>";
@@ -292,6 +302,7 @@
 				A7A1D942235A77F600F0BC04 /* JSONDecoder+decodeResponse.swift */,
 				A7DD48AA235E5E95003321B4 /* Data+imageFormat.swift */,
 				A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */,
+				A712D5B7235F522100EAD45E /* UIColor+hexStringToUIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +325,7 @@
 				A7A1D957235B858C00F0BC04 /* ProductsSectionViewState.swift */,
 				A7A1D959235B85E500F0BC04 /* ProductsListViewState.swift */,
 				A7A0E6B2235E4C2C0002444F /* ProductDetailViewState.swift */,
+				A712D5BB235F595A00EAD45E /* ProductColorViewState.swift */,
 			);
 			path = ViewSates;
 			sourceTree = "<group>";
@@ -540,8 +552,10 @@
 				A72DCE2923590B5F00910862 /* AppDelegate.swift in Sources */,
 				A7A1D94A235B5CF900F0BC04 /* ProductsListViewModel.swift in Sources */,
 				A7A1D935235A66FF00F0BC04 /* ProductsListTableViewController.swift in Sources */,
+				A712D5B6235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift in Sources */,
 				A7A1D95D235CCAB100F0BC04 /* ProductDetailResponse.swift in Sources */,
 				A7DA58892359153400EE368D /* Storyboarded.swift in Sources */,
+				A712D5BA235F56BE00EAD45E /* ProductColorCollectionViewCell.swift in Sources */,
 				A7A1D948235B5ACB00F0BC04 /* ProductsListType.swift in Sources */,
 				A7A1D93C235A6D2200F0BC04 /* ProductsListResponse.swift in Sources */,
 				A7DD48AF235E65F2003321B4 /* CacheStorage.swift in Sources */,
@@ -555,7 +569,9 @@
 				A7A1D958235B858C00F0BC04 /* ProductsSectionViewState.swift in Sources */,
 				A7A1D95F235CCFA700F0BC04 /* Header.swift in Sources */,
 				A7A1D930235A63A000F0BC04 /* MenuViewModel.swift in Sources */,
+				A712D5BC235F595A00EAD45E /* ProductColorViewState.swift in Sources */,
 				A7A1D967235D1A1C00F0BC04 /* ProductImagesFlowLayout.swift in Sources */,
+				A712D5B8235F522100EAD45E /* UIColor+hexStringToUIColor.swift in Sources */,
 				A7A1D92B235A4E9300F0BC04 /* MenuViewController.swift in Sources */,
 				A7A1D954235B783800F0BC04 /* ProductCollectionViewCell.swift in Sources */,
 				A7A1D952235B735600F0BC04 /* ProductsSectionTableViewCell.swift in Sources */,

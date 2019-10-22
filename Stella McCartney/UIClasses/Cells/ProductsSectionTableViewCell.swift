@@ -67,6 +67,4 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedProductClosure?(indexPath.item, self)
     }
-    
-    
 }

@@ -15,6 +15,7 @@ struct ProductDetailViewState {
     private let fullPrice: Int
     private let discountedPrice: Int
     let isDiscounted: Bool
+    var colors = [ProductColorViewState]()
     
     init(modelName: String, fullPrice: Int, discountedPrice: Int? = nil) {
         self.modelName = modelName
@@ -33,7 +34,6 @@ struct ProductDetailViewState {
     }
     
     var formattedDiscountedPrice: String {
-           return "\(discountedPrice)€"
-       }
-    
+        return "\(discountedPrice)€"
+    }
 }
