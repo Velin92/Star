@@ -36,17 +36,34 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
             case .success(let productDetail):
                 if let colors = productDetail.modelColors {
                     print(colors)
-                    self?.viewState.colors = colors.compactMap { color in
-                        guard let colorName = color.colorDescription, let rgbColor = color.rgb else{
-                            return nil
-                        }
-                        return ProductColorViewState(colorName: colorName, rgbColor: rgbColor)
-                    }
+                    self?.updateColors(colors)
+                }
+                if let sizes = productDetail.modelSizes {
+                    print(sizes)
+                    self?.updateSizes(sizes)
                 }
                 self?.updateViewState()
             case .failure:
                 break
             }
+        }
+    }
+    
+    private func updateColors(_ colors: [ModelColor] ) {
+        viewState.colors = colors.compactMap { color in
+            guard let colorName = color.colorDescription, let rgbColor = color.rgb else{
+                return nil
+            }
+            return ProductColorViewState(colorName: colorName, rgbColor: rgbColor)
+        }
+    }
+    
+    private func updateSizes(_ sizes: [ModelSize]) {
+        self.viewState.sizes = sizes.compactMap { size in
+            guard let sizeValue = size.modelSizeDefault?.text, let sizeMetric = size.modelSizeDefault?.classFamily else {
+                return nil
+            }
+            return ProductSizeViewState(size: sizeValue, metric: sizeMetric)
         }
     }
     

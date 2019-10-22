@@ -20,12 +20,14 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
-    @IBOutlet weak var sizeCollectionView: UICollectionView!
+    @IBOutlet weak var sizesCollectionView: UICollectionView!
     @IBOutlet weak var categoriesLabel: UILabel!
     
     var viewModel: ProductDetailViewModelProtocol!
-    var imagesCollectionDSD = ProductImagesCollectionDataSourceDelegate()
-    var colorsCollectionDSD = ProductColorsCollectionDataSourceDelegate()
+    private let imagesCollectionDSD = ProductImagesCollectionDataSourceDelegate()
+    private let colorsCollectionDSD = ProductColorsCollectionDataSourceDelegate()
+    private let sizesCollectionDSD = ProductSizesCollectionDataSourceDelegate()
+    
     var viewState = ProductDetailViewState(modelName: "", macroCategory: "", microCategory: "", fullPrice: 0) {
         didSet {
             updateDataSources()
@@ -38,11 +40,17 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     private func updateDataSources() {
         imagesCollectionDSD.imageDatas = viewState.imageDatas
         colorsCollectionDSD.cellViewStates = viewState.colors
+        sizesCollectionDSD.cellViewState = viewState.sizes
     }
     
     private func updateView() {
         nameLabel.text = viewState.modelName
         categoriesLabel.text = viewState.formattedCategories
+        updatePriceLabels()
+        reloadCollectionViews()
+    }
+    
+    private func updatePriceLabels() {
         let mutableAttributedString = NSMutableAttributedString(attributedString: priceLabel.attributedText!)
         mutableAttributedString.mutableString.setString(viewState.formattedFullPrice)
         if viewState.isDiscounted {
@@ -53,8 +61,12 @@ class ProductDetailViewController: UIViewController, Storyboarded {
             discountedPriceLabel.isHidden = true
         }
         priceLabel.attributedText = mutableAttributedString
+    }
+    
+    private func reloadCollectionViews() {
         self.productImagesCollectionView.reloadData()
         self.colorsCollectionView.reloadData()
+        self.sizesCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -66,11 +78,17 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     private func setupCollectionViews() {
         setupProductImagesCollectionView()
         setupColorsCollectionView()
+        setupSizesCollectionView()
     }
     
     private func setupColorsCollectionView() {
         colorsCollectionView.delegate = colorsCollectionDSD
         colorsCollectionView.dataSource = colorsCollectionDSD
+    }
+    
+    private func setupSizesCollectionView() {
+        sizesCollectionView.delegate = sizesCollectionDSD
+        sizesCollectionView.dataSource = sizesCollectionDSD
     }
     
     private func setupProductImagesCollectionView() {

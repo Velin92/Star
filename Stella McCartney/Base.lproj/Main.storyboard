@@ -388,13 +388,28 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CSJ-ct-qbT">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductSizeCell" id="CSJ-ct-qbT" customClass="ProductSizeCollectionViewCell" customModule="Stella_McCartney" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="azN-Eg-cHy">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hL-D9-OMh" userLabel="Size">
+                                                                            <rect key="frame" x="4" y="15" width="42" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="0hL-D9-OMh" firstAttribute="leading" secondItem="azN-Eg-cHy" secondAttribute="leading" constant="4" id="HzH-fU-bfO"/>
+                                                                        <constraint firstItem="0hL-D9-OMh" firstAttribute="centerY" secondItem="azN-Eg-cHy" secondAttribute="centerY" id="K2P-AD-pcg"/>
+                                                                    </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="sizeLabel" destination="0hL-D9-OMh" id="415-KI-Cre"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -441,7 +456,7 @@
                         <outlet property="nameLabel" destination="HX1-fa-3bK" id="gsw-hF-WOJ"/>
                         <outlet property="priceLabel" destination="8ma-yU-zLm" id="Bs8-8i-rbE"/>
                         <outlet property="productImagesCollectionView" destination="i0D-PN-yEx" id="DOt-MG-IbZ"/>
-                        <outlet property="sizeCollectionView" destination="1eg-st-HHQ" id="iwi-XQ-yl4"/>
+                        <outlet property="sizesCollectionView" destination="1eg-st-HHQ" id="iwi-XQ-yl4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxr-O9-yZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

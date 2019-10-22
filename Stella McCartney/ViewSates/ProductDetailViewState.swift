@@ -18,6 +18,7 @@ struct ProductDetailViewState {
     private let macroCategory: String
     let isDiscounted: Bool
     var colors = [ProductColorViewState]()
+    var sizes = [ProductSizeViewState]()
     
     init(modelName: String, macroCategory: String, microCategory: String, fullPrice: Int, discountedPrice: Int? = nil) {
         self.modelName = modelName
