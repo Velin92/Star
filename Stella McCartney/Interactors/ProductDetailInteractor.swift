@@ -13,6 +13,7 @@ enum ProductDetailError: Error {
 }
 
 protocol ProductDetailInteractorProtocol {
+    var product: Product {get}
     func loadProductAdditionalDetails()
     func loadImages(completion: @escaping (([Data])-> Void))
 }

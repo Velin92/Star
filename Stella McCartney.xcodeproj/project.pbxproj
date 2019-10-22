@@ -176,7 +176,6 @@
 			children = (
 				A7A1D95B235B8C1200F0BC04 /* ViewSates */,
 				A7A1D950235B732600F0BC04 /* UIClasses */,
-				A7A1D946235B5A4100F0BC04 /* Model */,
 				A7A1D941235A77B700F0BC04 /* Extensions */,
 				A7A1D936235A69B400F0BC04 /* Services */,
 				A7A1D931235A650100F0BC04 /* Interactors */,
@@ -297,14 +296,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A7A1D946235B5A4100F0BC04 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A7A1D947235B5ACB00F0BC04 /* ProductsListType.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A7A1D950235B732600F0BC04 /* UIClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +309,7 @@
 		A7A1D95B235B8C1200F0BC04 /* ViewSates */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1D947235B5ACB00F0BC04 /* ProductsListType.swift */,
 				A7A1D955235B854500F0BC04 /* ProductViewState.swift */,
 				A7A1D957235B858C00F0BC04 /* ProductsSectionViewState.swift */,
 				A7A1D959235B85E500F0BC04 /* ProductsListViewState.swift */,

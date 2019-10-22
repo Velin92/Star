@@ -16,7 +16,7 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     
     weak var view: ProductDetailViewProtocol!
     var interactor: ProductDetailInteractorProtocol
-    var viewState = ProductDetailViewState()
+    var viewState = ProductDetailViewState(modelName: "", fullPrice: 0)
     
     init(view: ProductDetailViewProtocol, interactor: ProductDetailInteractorProtocol) {
         self.view = view
@@ -24,7 +24,9 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     }
     
     func loadView() {
-        interactor.loadProductAdditionalDetails()
+        viewState.modelName = interactor.product.modelNames!
+        viewState.fullPrice = interactor.product.fullPrice!
+        updateViewState()
         interactor.loadImages() { [weak self] datas in
             self?.viewState.imageDatas = datas
             self?.updateViewState()
@@ -34,5 +36,4 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     private func updateViewState() {
         view.viewState = viewState
     }
-    
 }

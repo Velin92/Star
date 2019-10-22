@@ -11,5 +11,16 @@ import Foundation
 struct ProductDetailViewState {
     
     var imageDatas = [Data]()
+    var modelName: String
+    var fullPrice: Int
+    
+    init(modelName: String, fullPrice: Int) {
+        self.modelName = modelName
+        self.fullPrice = fullPrice
+    }
+    
+    var formattedFullPrice: String {
+        return "\(fullPrice)€"
+    }
     
 }
