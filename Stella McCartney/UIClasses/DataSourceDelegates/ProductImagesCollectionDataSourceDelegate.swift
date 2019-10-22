@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProductImagesCollectionDataSourceDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class ProductImagesCollectionDataSourceDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
     
     var imageDatas = [Data]()
     
