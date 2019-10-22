@@ -105,17 +105,26 @@ extension ImageService: ProductsListImageService {
         let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
         let typeCode = imageType.code
         let url = generateJpegImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
-        if let data = try? storage?.load(for: url.absoluteString) {
-            completion(data)
-        } else {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url), data.imageFormat == .jpg {
-                    try? self.storage?.save(value: data, for: url.absoluteString)
-                    completion(data)
-                } else {
-                    print("imageData for \(code) is nil")
-                }
+        DispatchQueue.global().async { [weak self] in
+            var foundData: Data?
+            if let data = try? self?.storage?.load(for: url.absoluteString) {
+                foundData = data
             }
+            else if let data = try? Data(contentsOf: url), data.imageFormat == .jpg {
+                try? self?.storage?.save(value: data, for: url.absoluteString)
+                foundData = data
+            }
+            self?.handleFoundData(foundData, for: url.absoluteString, completion: completion)
+        }
+    }
+    
+    private func handleFoundData(_ foundData: Data?, for url: String, completion:  @escaping ((Data)-> Void)) {
+        guard let receivedData = foundData else {
+            print("No imageData found for url:\(url)")
+            return
+        }
+        DispatchQueue.main.async {
+            completion(receivedData)
         }
     }
 }
