@@ -23,7 +23,7 @@ class ProductDetailInteractor: ProductDetailInteractorProtocol {
     let apiService: ProductDetailAPIClient
     let imageService: ProductDetailImageService
     
-    //I know for sure that this product has at least code8, modelNames, microCategory and fullPrice
+    //this product has already been validated so code8, name, microCategory, macroCategory and fullPrice are not nil
     let product: Product
     
     init(product: Product, apiService: ProductDetailAPIClient, imageService: ProductDetailImageService) {

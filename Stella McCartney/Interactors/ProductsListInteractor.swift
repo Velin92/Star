@@ -43,7 +43,7 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                     completion(.failure(.genericError))
                     return
                 }
-                let identifiableProducts = products.filter {$0.code8 != nil}
+                let identifiableProducts = products.filter {(self?.isProductValid($0) ?? false)}
                 completion(.success(identifiableProducts))
                 identifiableProducts.forEach { product in
                     if let productId = product.code8 {
@@ -55,6 +55,14 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
                 completion(.failure(.genericError))
             }
         }
+    }
+    
+    private func isProductValid(_ product: Product) -> Bool {
+        return product.code8 != nil &&
+        product.microCategory != nil &&
+        product.macroCategory != nil &&
+        product.fullPrice != nil &&
+        product.modelNames != nil
     }
     
     private func saveImage(for key: String, of product: Product) {

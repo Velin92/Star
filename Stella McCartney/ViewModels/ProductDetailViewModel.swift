@@ -16,16 +16,16 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     
     weak var view: ProductDetailViewProtocol!
     var interactor: ProductDetailInteractorProtocol
-    var viewState = ProductDetailViewState(modelName: "", fullPrice: 0)
+    var viewState: ProductDetailViewState
     
     init(view: ProductDetailViewProtocol, interactor: ProductDetailInteractorProtocol) {
         self.view = view
         self.interactor = interactor
+        let product = interactor.product
+        self.viewState = ProductDetailViewState(modelName: product.modelNames!, macroCategory: product.macroCategory!, microCategory: product.microCategory!, fullPrice: product.fullPrice!, discountedPrice: product.discountedPrice)
     }
     
     func loadView() {
-        let product = interactor.product
-        viewState = ProductDetailViewState(modelName: product.modelNames!, fullPrice: product.fullPrice!, discountedPrice: product.discountedPrice)
         updateViewState()
         interactor.loadImages() { [weak self] datas in
             self?.viewState.imageDatas = datas

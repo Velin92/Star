@@ -21,11 +21,12 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
+    @IBOutlet weak var categoriesLabel: UILabel!
     
     var viewModel: ProductDetailViewModelProtocol!
     var imagesCollectionDSD = ProductImagesCollectionDataSourceDelegate()
     var colorsCollectionDSD = ProductColorsCollectionDataSourceDelegate()
-    var viewState = ProductDetailViewState(modelName: "", fullPrice: 0) {
+    var viewState = ProductDetailViewState(modelName: "", macroCategory: "", microCategory: "", fullPrice: 0) {
         didSet {
             updateDataSources()
             DispatchQueue.main.async {
@@ -41,6 +42,7 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     
     private func updateView() {
         nameLabel.text = viewState.modelName
+        categoriesLabel.text = viewState.formattedCategories
         let mutableAttributedString = NSMutableAttributedString(attributedString: priceLabel.attributedText!)
         mutableAttributedString.mutableString.setString(viewState.formattedFullPrice)
         if viewState.isDiscounted {

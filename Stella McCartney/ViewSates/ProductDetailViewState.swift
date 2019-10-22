@@ -14,12 +14,16 @@ struct ProductDetailViewState {
     let modelName: String
     private let fullPrice: Int
     private let discountedPrice: Int
+    private let microCategory: String
+    private let macroCategory: String
     let isDiscounted: Bool
     var colors = [ProductColorViewState]()
     
-    init(modelName: String, fullPrice: Int, discountedPrice: Int? = nil) {
+    init(modelName: String, macroCategory: String, microCategory: String, fullPrice: Int, discountedPrice: Int? = nil) {
         self.modelName = modelName
         self.fullPrice = fullPrice
+        self.microCategory = microCategory
+        self.macroCategory = macroCategory
         if let discountedPrice = discountedPrice {
             self.isDiscounted = discountedPrice < fullPrice
             self.discountedPrice = discountedPrice
@@ -35,5 +39,9 @@ struct ProductDetailViewState {
     
     var formattedDiscountedPrice: String {
         return "\(discountedPrice)€"
+    }
+    
+    var formattedCategories: String {
+        return "\(macroCategory) - \(microCategory)"
     }
 }

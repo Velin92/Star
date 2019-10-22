@@ -47,22 +47,23 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
             self?.updateViewState()
         }
     }
-        
+    
+    //the products in this func have already been validated so code8, name, microCategory, macroCategory and fullPrice are not nil
     private func populateViewModel(with products: [Product]) {
-        let sectionsSet = Set(products.compactMap {$0.microCategory})
+        let sectionsSet = Set(products.compactMap {$0.macroCategory})
         let orderedSections = sectionsSet.map{$0}.sorted()
         orderedSections.enumerated().forEach { (sectionIndex,section) in
-            let filteredProductsOfSection = products.filter {
-                $0.microCategory == section &&
-                $0.modelNames != nil &&
-                $0.fullPrice != nil
-            }
+            let filteredProductsOfSection = products.filter {$0.macroCategory == section}
             let orderedProductsOfSection = filteredProductsOfSection.sorted(by: {$0.modelNames! <= $1.modelNames!})
             var productsViewState = [ProductViewState]()
             orderedProductsOfSection.enumerated().forEach { (arg) in
                 let (productIndex, product) = arg
                 viewIndexesToProductId[IndexPath(item: productIndex, section: sectionIndex)] = product.code8
-                productsViewState.append(ProductViewState(name: product.modelNames!, price: product.fullPrice!))
+                var price = product.fullPrice!
+                if let discountedPrice = product.discountedPrice, discountedPrice < price {
+                    price = discountedPrice
+                }
+                productsViewState.append(ProductViewState(name: product.modelNames!, price: price))
             }
             viewState.productSections.append(ProductsSectionViewState(name: section, products: productsViewState))
         }
