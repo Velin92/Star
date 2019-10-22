@@ -12,9 +12,7 @@ import Foundation
 enum StorageError: Error {
     case notFound
     case cantWrite(Error)
-    case cantRead(Error)
-    case cantEncode(Error)
-    case cantDecode(Error)
+    case cantCreateDirectory(Error)
 }
 
 class CacheStorage {
@@ -56,11 +54,16 @@ extension CacheStorage {
     private func createFolders(in url: URL) throws {
         let folderUrl = url.deletingLastPathComponent()
         if !fileManager.fileExists(atPath: folderUrl.path) {
-            try fileManager.createDirectory(
-                at: folderUrl,
-                withIntermediateDirectories: true,
-                attributes: nil
-            )
+            do {
+                try fileManager.createDirectory(
+                    at: folderUrl,
+                    withIntermediateDirectories: true,
+                    attributes: nil
+                )
+            }
+            catch {
+                throw StorageError.cantCreateDirectory(error)
+            }
         }
     }
 }

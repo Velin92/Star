@@ -46,7 +46,6 @@ extension Data {
                 return .webp
             } else {
                 print ("prefix \(prefix) is unknown")
-                return .unknown
             }
         }
         return .unknown

@@ -83,39 +83,11 @@ protocol ProductDetailImageService {
     func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void) )
 }
 
-class ImageService: ProductsListImageService, ProductDetailImageService {
+class ImageService {
     
     static let baseUrl = "https://www.stellamccartney.com/"
     
     let storage: CacheStorage? = CacheStorage(path: "images")
-    
-    func loadImage(for code: String, imageType: ImageTypes, pixels: Int, completion: @escaping ((Data)-> Void)) {
-        let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
-        let typeCode = imageType.code
-        let url = generateJpegImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
-        if let data = try? storage?.load(for: url.absoluteString) {
-            completion(data)
-        } else {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url), data.imageFormat == .jpg {
-                    try? self.storage?.save(value: data, for: url.absoluteString)
-                    completion(data)
-                } else {
-                    print("imageData for \(code) is nil")
-                }
-            }
-        }
-    }
-    
-    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void)) {
-        let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
-        let tuples = ImageTypes.allCases.map { (type: ImageTypes) -> (ImageTypes, URL) in
-            let url =  generateJpegImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)
-            return (type, url)
-        }
-        let imageUrls = [ImageTypes:URL](uniqueKeysWithValues: tuples)
-        downloadJpegImages(from: imageUrls, completion: completion)
-    }
     
     private func generateJpegImageUrl(for code: String, imageTypeCode: String, resolutionCode: String) -> URL {
         let folderId = code.prefix(2)
@@ -146,5 +118,39 @@ class ImageService: ProductsListImageService, ProductDetailImageService {
         serviceGroup.notify(queue: DispatchQueue.main) {
             completion(results)
         }
+    }
+}
+
+extension ImageService: ProductsListImageService {
+    
+    func loadImage(for code: String, imageType: ImageTypes, pixels: Int, completion: @escaping ((Data)-> Void)) {
+        let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
+        let typeCode = imageType.code
+        let url = generateJpegImageUrl(for: code, imageTypeCode: typeCode, resolutionCode: resolutionCode)
+        if let data = try? storage?.load(for: url.absoluteString) {
+            completion(data)
+        } else {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), data.imageFormat == .jpg {
+                    try? self.storage?.save(value: data, for: url.absoluteString)
+                    completion(data)
+                } else {
+                    print("imageData for \(code) is nil")
+                }
+            }
+        }
+    }
+}
+
+extension ImageService: ProductDetailImageService {
+    
+    func loadAllImages(for code: String, pixels: Int, completion: @escaping (([ImageTypes : Data])-> Void)) {
+        let resolutionCode = ImageResolutions.getBestResolution(for: pixels).code
+        let tuples = ImageTypes.allCases.map { (type: ImageTypes) -> (ImageTypes, URL) in
+            let url =  generateJpegImageUrl(for: code, imageTypeCode: type.code, resolutionCode: resolutionCode)
+            return (type, url)
+        }
+        let imageUrls = [ImageTypes:URL](uniqueKeysWithValues: tuples)
+        downloadJpegImages(from: imageUrls, completion: completion)
     }
 }
