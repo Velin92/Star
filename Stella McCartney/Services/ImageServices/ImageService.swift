@@ -97,28 +97,6 @@ class ImageService {
         }
         return url
     }
-    
-    private func downloadJpegImages(from imageUrls: [ImageTypes : URL], completion: @escaping (([ImageTypes : Data])-> Void)) {
-        let serviceGroup = DispatchGroup()
-        var blocks: [DispatchWorkItem] = []
-        var results: [ImageTypes : Data] = [:]
-        for imageUrl in imageUrls {
-            serviceGroup.enter()
-            let block = DispatchWorkItem(flags: .inheritQoS) {
-                if let data = try? Data(contentsOf: imageUrl.value), data.imageFormat == .jpg {
-                    results[imageUrl.key] = data
-                } else {
-                    print("imageData for \(imageUrl.value) is nil")
-                }
-                serviceGroup.leave()
-            }
-            blocks.append(block)
-            DispatchQueue.global().async(execute: block)
-        }
-        serviceGroup.notify(queue: DispatchQueue.main) {
-            completion(results)
-        }
-    }
 }
 
 extension ImageService: ProductsListImageService {
@@ -152,5 +130,30 @@ extension ImageService: ProductDetailImageService {
         }
         let imageUrls = [ImageTypes:URL](uniqueKeysWithValues: tuples)
         downloadJpegImages(from: imageUrls, completion: completion)
+    }
+    
+    private func downloadJpegImages(from imageUrls: [ImageTypes : URL], completion: @escaping (([ImageTypes : Data])-> Void)) {
+        let queue = DispatchQueue.init(label: "ImagesQueue", qos: .background, attributes: .concurrent)
+        let serviceGroup = DispatchGroup()
+        var results: [ImageTypes : Data] = [:]
+        for imageUrl in imageUrls {
+            queue.async(group: serviceGroup) { [weak self] in
+                var foundData: Data?
+                if let data = try? self?.storage?.load(for: imageUrl.value.absoluteString) {
+                    foundData = data
+                } else if let data = try? Data(contentsOf: imageUrl.value), data.imageFormat == .jpg {
+                    foundData = data
+                    try? self?.storage?.save(value: data, for: imageUrl.value.absoluteString)
+                } else {
+                    print("imageData for \(imageUrl.value) is nil")
+                }
+                queue.async(group: serviceGroup, flags: .barrier) {
+                    results[imageUrl.key] = foundData
+                }
+            }
+        }
+        serviceGroup.notify(queue: DispatchQueue.main) {
+            completion(results)
+        }
     }
 }
