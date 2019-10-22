@@ -24,8 +24,8 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     }
     
     func loadView() {
-        viewState.modelName = interactor.product.modelNames!
-        viewState.fullPrice = interactor.product.fullPrice!
+        let product = interactor.product
+        viewState = ProductDetailViewState(modelName: product.modelNames!, fullPrice: product.fullPrice!, discountedPrice: product.discountedPrice)
         updateViewState()
         interactor.loadImages() { [weak self] datas in
             self?.viewState.imageDatas = datas

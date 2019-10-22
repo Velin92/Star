@@ -36,7 +36,16 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     
     private func updateView() {
         nameLabel.text = viewState.modelName
-        priceLabel.text = viewState.formattedFullPrice
+        let mutableAttributedString = NSMutableAttributedString(attributedString: priceLabel.attributedText!)
+        mutableAttributedString.mutableString.setString(viewState.formattedFullPrice)
+        if viewState.isDiscounted {
+            mutableAttributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0,mutableAttributedString.length))
+            discountedPriceLabel.isHidden = false
+            discountedPriceLabel.text = viewState.formattedDiscountedPrice
+        } else {
+            discountedPriceLabel.isHidden = true
+        }
+        priceLabel.attributedText = mutableAttributedString
     }
     
     override func viewDidLoad() {

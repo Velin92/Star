@@ -11,16 +11,29 @@ import Foundation
 struct ProductDetailViewState {
     
     var imageDatas = [Data]()
-    var modelName: String
-    var fullPrice: Int
+    let modelName: String
+    private let fullPrice: Int
+    private let discountedPrice: Int
+    let isDiscounted: Bool
     
-    init(modelName: String, fullPrice: Int) {
+    init(modelName: String, fullPrice: Int, discountedPrice: Int? = nil) {
         self.modelName = modelName
         self.fullPrice = fullPrice
+        if let discountedPrice = discountedPrice {
+            self.isDiscounted = discountedPrice < fullPrice
+            self.discountedPrice = discountedPrice
+        } else {
+            self.isDiscounted = false
+            self.discountedPrice = 0
+        }
     }
     
     var formattedFullPrice: String {
         return "\(fullPrice)€"
     }
+    
+    var formattedDiscountedPrice: String {
+           return "\(discountedPrice)€"
+       }
     
 }
