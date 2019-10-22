@@ -58,9 +58,9 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     }
     
     private func saveImage(for key: String, of product: Product) {
-        guard let imageCode = product.defaultCode10, let productId = product.code8 else {return}
+        guard let imageCode = product.defaultCode10 else {return}
         imageService.loadImage(for: imageCode, imageType: .front, pixels: 101) { [weak self] data in
-            self?.imageDownloadedClosure?(productId, data)
+            self?.imageDownloadedClosure?(key, data)
         }
     }
     

@@ -18,13 +18,16 @@ class ProductsSectionTableViewCell: UITableViewCell {
     
     var viewState = ProductsSectionViewState(name: "", products: []){
         didSet {
-            updateCell()
+            DispatchQueue.main.async {
+                self.updateCell()
+            }
         }
     }
     
     private func updateCell() {
         sectionLabel.text = viewState.name
         productsCollectionView.reloadData()
+        productsCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func awakeFromNib() {
