@@ -50,10 +50,17 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     
     //the products in this func have already been validated so code8, name, microCategory, macroCategory and fullPrice are not nil
     private func populateViewModel(with products: [Product]) {
-        let sectionsSet = Set(products.compactMap {$0.macroCategory})
+        var isMacroSorted = true
+        var sectionsSet = Set(products.compactMap {$0.macroCategory})
+        if sectionsSet.count <= 1 {
+            isMacroSorted = false
+            sectionsSet = Set(products.compactMap {$0.microCategory})
+        }
         let orderedSections = sectionsSet.map{$0}.sorted()
         orderedSections.enumerated().forEach { (sectionIndex,section) in
-            let filteredProductsOfSection = products.filter {$0.macroCategory == section}
+            let filteredProductsOfSection = products.filter {
+                isMacroSorted ? $0.macroCategory == section : $0.microCategory == section
+            }
             let orderedProductsOfSection = filteredProductsOfSection.sorted(by: {$0.modelNames! <= $1.modelNames!})
             var productsViewState = [ProductViewState]()
             orderedProductsOfSection.enumerated().forEach { (arg) in
