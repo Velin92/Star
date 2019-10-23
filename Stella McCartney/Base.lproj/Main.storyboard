@@ -24,17 +24,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-ig-SYW" userLabel="Beauty">
                                 <rect key="frame" x="207" y="0.0" width="207" height="448"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beauty" translatesAutoresizingMaskIntoConstraints="NO" id="f47-ds-tlG">
+                                        <rect key="frame" x="0.0" y="-1" width="207" height="449"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beauty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsW-RG-Jlr">
-                                        <rect key="frame" x="77" y="213.66666666666666" width="53" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="46" y="373" width="115" height="75"/>
+                                        <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="62"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="zsW-RG-Jlr" firstAttribute="centerX" secondItem="vM7-ig-SYW" secondAttribute="centerX" id="1Lk-HM-gr6"/>
-                                    <constraint firstItem="zsW-RG-Jlr" firstAttribute="centerY" secondItem="vM7-ig-SYW" secondAttribute="centerY" id="kbr-of-PLe"/>
+                                    <constraint firstAttribute="trailing" secondItem="f47-ds-tlG" secondAttribute="trailing" id="3ga-dZ-dvF"/>
+                                    <constraint firstItem="f47-ds-tlG" firstAttribute="top" secondItem="vM7-ig-SYW" secondAttribute="top" constant="-1" id="P6T-JW-beY"/>
+                                    <constraint firstAttribute="bottom" secondItem="zsW-RG-Jlr" secondAttribute="bottom" id="Pmk-Ln-c0C"/>
+                                    <constraint firstItem="f47-ds-tlG" firstAttribute="leading" secondItem="vM7-ig-SYW" secondAttribute="leading" id="WNB-CH-3Zj"/>
+                                    <constraint firstAttribute="bottom" secondItem="f47-ds-tlG" secondAttribute="bottom" id="dag-nj-wr2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-r0-7aH" userLabel="Lingerie">
@@ -143,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-75" y="137"/>
         </scene>
         <!--Products List Table View Controller-->
         <scene sceneID="X83-nA-LsC">
@@ -490,6 +499,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="beauty" width="251" height="457"/>
         <image name="lingerie" width="414" height="448"/>
         <image name="readyToWear" width="272" height="450"/>
     </resources>
