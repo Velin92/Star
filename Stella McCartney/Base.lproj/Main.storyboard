@@ -44,15 +44,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="406"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lingerie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pX6-Yn-hlb">
-                                        <rect key="frame" x="24" y="310.33333333333331" width="139.33333333333334" height="95.666666666666686"/>
+                                        <rect key="frame" x="23.666666666666671" y="311.33333333333331" width="140.33333333333331" height="94.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="28"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
+                                        <color key="shadowColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="1" height="-1"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pX6-Yn-hlb" firstAttribute="centerX" secondItem="Qgl-r0-7aH" secondAttribute="centerX" id="49Q-U1-KnC"/>
                                     <constraint firstItem="FMn-86-pR5" firstAttribute="leading" secondItem="Qgl-r0-7aH" secondAttribute="leading" id="QCy-Tz-Pb7"/>
