@@ -69,10 +69,6 @@ class ProductsListTableViewController: UITableViewController, Storyboarded {
         return viewState.productSections.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
-    }
-    
     private func selectedProduct(at index: Int, in cell: UITableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             fatalError("Error something is wrong, this indexPath should exist")

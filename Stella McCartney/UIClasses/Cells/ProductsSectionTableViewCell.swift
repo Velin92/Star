@@ -41,7 +41,7 @@ class ProductsSectionTableViewCell: UITableViewCell {
     }
 }
 
-extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
@@ -61,10 +61,6 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 140, height: 182)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
