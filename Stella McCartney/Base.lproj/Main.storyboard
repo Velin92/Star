@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="406"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lingerie" translatesAutoresizingMaskIntoConstraints="NO" id="FMn-86-pR5">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="406"/>
+                                        <rect key="frame" x="0.0" y="-1" width="187.66666666666666" height="407"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lingerie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pX6-Yn-hlb">
                                         <rect key="frame" x="23.666666666666671" y="311.33333333333331" width="140.33333333333331" height="94.666666666666686"/>
@@ -57,7 +57,7 @@
                                     <constraint firstItem="pX6-Yn-hlb" firstAttribute="centerX" secondItem="Qgl-r0-7aH" secondAttribute="centerX" id="49Q-U1-KnC"/>
                                     <constraint firstItem="FMn-86-pR5" firstAttribute="leading" secondItem="Qgl-r0-7aH" secondAttribute="leading" id="QCy-Tz-Pb7"/>
                                     <constraint firstAttribute="bottom" secondItem="FMn-86-pR5" secondAttribute="bottom" id="WpU-o5-5ye"/>
-                                    <constraint firstItem="FMn-86-pR5" firstAttribute="top" secondItem="Qgl-r0-7aH" secondAttribute="top" id="X34-qc-nUw"/>
+                                    <constraint firstItem="FMn-86-pR5" firstAttribute="top" secondItem="Qgl-r0-7aH" secondAttribute="top" constant="-1" id="X34-qc-nUw"/>
                                     <constraint firstAttribute="trailing" secondItem="FMn-86-pR5" secondAttribute="trailing" id="beK-Z2-e0F"/>
                                     <constraint firstAttribute="bottom" secondItem="pX6-Yn-hlb" secondAttribute="bottom" id="oQY-0t-k0x"/>
                                 </constraints>
@@ -202,16 +202,14 @@
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="eaS-Mx-oPT" firstAttribute="centerX" secondItem="MV6-lR-lOx" secondAttribute="centerX" id="1uA-qF-8Ue"/>
                                                             <constraint firstItem="eaS-Mx-oPT" firstAttribute="top" secondItem="MV6-lR-lOx" secondAttribute="bottom" id="8LY-bI-Cj2"/>
-                                                            <constraint firstItem="BHT-c2-reG" firstAttribute="centerX" secondItem="u0y-WF-nov" secondAttribute="centerX" id="EyJ-TD-bV7"/>
+                                                            <constraint firstItem="eaS-Mx-oPT" firstAttribute="leading" secondItem="MV6-lR-lOx" secondAttribute="leading" id="C3A-Lh-Tlg"/>
+                                                            <constraint firstItem="eaS-Mx-oPT" firstAttribute="trailing" secondItem="MV6-lR-lOx" secondAttribute="trailing" id="Cqj-Th-n5Y"/>
                                                             <constraint firstItem="MV6-lR-lOx" firstAttribute="top" secondItem="u0y-WF-nov" secondAttribute="top" id="IPX-Dh-eGg"/>
                                                             <constraint firstItem="BHT-c2-reG" firstAttribute="firstBaseline" secondItem="eaS-Mx-oPT" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="S4U-AB-4a5"/>
-                                                            <constraint firstItem="eaS-Mx-oPT" firstAttribute="centerX" secondItem="u0y-WF-nov" secondAttribute="centerX" id="U3j-PH-0o5"/>
                                                             <constraint firstItem="MV6-lR-lOx" firstAttribute="centerX" secondItem="u0y-WF-nov" secondAttribute="centerX" id="V9X-ej-Qaj"/>
-                                                            <constraint firstItem="BHT-c2-reG" firstAttribute="leading" secondItem="eaS-Mx-oPT" secondAttribute="leading" id="aCO-wR-g3s"/>
-                                                            <constraint firstItem="BHT-c2-reG" firstAttribute="trailing" secondItem="eaS-Mx-oPT" secondAttribute="trailing" id="kin-ou-TPf"/>
-                                                            <constraint firstItem="eaS-Mx-oPT" firstAttribute="leading" secondItem="MV6-lR-lOx" secondAttribute="leading" id="s3R-dk-y2O"/>
+                                                            <constraint firstItem="BHT-c2-reG" firstAttribute="trailing" secondItem="MV6-lR-lOx" secondAttribute="trailing" id="iXd-XQ-0l8"/>
+                                                            <constraint firstItem="BHT-c2-reG" firstAttribute="leading" secondItem="MV6-lR-lOx" secondAttribute="leading" id="yO5-Ut-PZB"/>
                                                         </constraints>
                                                     </collectionViewCellContentView>
                                                     <size key="customSize" width="120" height="220"/>
