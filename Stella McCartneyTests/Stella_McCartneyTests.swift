@@ -10,7 +10,7 @@ import XCTest
 @testable import Stella_McCartney
 
 class Stella_McCartneyTests: XCTestCase {
-    
+        
     func testMenuViewModel() {
         let mockViewController = MenuViewControllerMock()
         let viewModel = MenuViewModel(view: mockViewController)
@@ -49,15 +49,15 @@ class Stella_McCartneyTests: XCTestCase {
         XCTAssert(mockViewController.viewState.productSections.count == 2)
     }
     
-    func testProductListInteractorError() {
+    func testProductsListErrorView() {
         let mockViewController = ProductsListViewControllerMock()
         let apiClientMock = APIClientMock()
-        apiClientMock.productListResponse = try! JSONDecoder().decode(ProductsListResponse.self, from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponse", withExtension: "json")!))
+        apiClientMock.isFailureTest = true
         let imageServiceMock = ImageServiceMock()
-        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
         let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
         let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
         viewModel.loadProductsList()
+        XCTAssert(mockViewController.errorScreenIsShown)
     }
     
     func testPerformanceExample() {

@@ -12,9 +12,10 @@ import UIKit
 protocol ProductsListViewProtocol where Self: UIViewController {
     var viewState: ProductsListViewState {get set}
     func goToProductDetail(for product: Product)
+    func showErrorView()
 }
 
-class ProductsListTableViewController: UITableViewController, Storyboarded {
+class ProductsListTableViewController: UITableViewController, Storyboarded, LoaderDisplayer {
     
     var viewModel: ProductsListViewModelProtocol!
     var goToProductDetailClosure: ((Product)->Void)?
@@ -78,6 +79,26 @@ class ProductsListTableViewController: UITableViewController, Storyboarded {
 }
 
 extension ProductsListTableViewController: ProductsListViewProtocol {
+    
+    func showErrorView() {
+        let maskView = UIView(frame: self.view.frame)
+        if #available(iOS 13.0, *) {
+            maskView.backgroundColor = .systemBackground
+        } else {
+            maskView.backgroundColor = .white
+        }
+        self.view.addSubview(maskView)
+        let errorLabel = UILabel()
+        errorLabel.numberOfLines = 0
+        errorLabel.text = """
+        Si è verificato un errore.
+        Controllare la connessione e riprovare più tardi
+        """
+        errorLabel.textAlignment = .center
+        errorLabel.frame = maskView.frame
+        errorLabel.center = maskView.center
+        maskView.addSubview(errorLabel)
+    }
     
     func goToProductDetail(for product: Product) {
         goToProductDetailClosure?(product)

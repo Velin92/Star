@@ -15,25 +15,28 @@ protocol ProductsListViewModelProtocol {
 
 class ProductsListViewModel: ProductsListViewModelProtocol {
     
-    weak var view: ProductsListViewProtocol!
+    typealias ProductsListView = ProductsListViewProtocol & LoaderDisplayer
+    weak var view: ProductsListView!
     var interactor: ProductsListInteractorProtocol
     var viewState = ProductsListViewState(productSections: [])
     var viewIndexesToProductId : [IndexPath: String] = [:]
     
-    init(view: ProductsListViewProtocol, interactor: ProductsListInteractorProtocol) {
+    init(view: ProductsListView, interactor: ProductsListInteractorProtocol) {
         self.view = view
         self.interactor = interactor
         self.configureInteractor()
     }
     
     func loadProductsList() {
+        view.showLoader()
         interactor.loadProductsList() { [weak self] result in
+            self?.view.hideLoader()
             switch result {
             case .success(let products):
                 self?.populateViewModel(with: products)
                 self?.updateViewState()
             case .failure:
-                break
+                self?.view.showErrorView()
             }
         }
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -14,21 +14,21 @@
             <objects>
                 <viewController storyboardIdentifier="MenuViewController" id="BYZ-38-t0r" customClass="MenuViewController" customModule="Stella_McCartney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkX-7u-p25" userLabel="BackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-ig-SYW" userLabel="Beauty">
-                                <rect key="frame" x="160" y="0.0" width="160" height="240"/>
+                                <rect key="frame" x="160" y="0.0" width="160" height="284"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beauty" translatesAutoresizingMaskIntoConstraints="NO" id="f47-ds-tlG">
-                                        <rect key="frame" x="0.0" y="-1" width="160" height="241"/>
+                                        <rect key="frame" x="0.0" y="-1" width="160" height="285"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beauty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsW-RG-Jlr">
-                                        <rect key="frame" x="0.0" y="170" width="160" height="40"/>
+                                        <rect key="frame" x="0.0" y="214" width="160" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dQh-Eh-Pi0"/>
@@ -52,13 +52,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-r0-7aH" userLabel="Lingerie">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="284"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lingerie" translatesAutoresizingMaskIntoConstraints="NO" id="FMn-86-pR5">
-                                        <rect key="frame" x="0.0" y="-1" width="160" height="241"/>
+                                        <rect key="frame" x="0.0" y="-1" width="160" height="285"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lingerie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pX6-Yn-hlb">
-                                        <rect key="frame" x="0.0" y="170" width="160" height="40"/>
+                                        <rect key="frame" x="0.0" y="214" width="160" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="uwf-tM-XSC"/>
@@ -82,13 +82,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDJ-2F-NkY" userLabel="ReadyToWear">
-                                <rect key="frame" x="160" y="240" width="160" height="240"/>
+                                <rect key="frame" x="160" y="284" width="160" height="284"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="readyToWear" translatesAutoresizingMaskIntoConstraints="NO" id="Aw4-92-iGT">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="284"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready To Wear" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WSW-wB-AeW">
-                                        <rect key="frame" x="0.0" y="170" width="160" height="40"/>
+                                        <rect key="frame" x="0.0" y="214" width="160" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="tgz-Oi-60x"/>
@@ -112,13 +112,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWX-A0-8D3" userLabel="Accessories">
-                                <rect key="frame" x="0.0" y="240" width="160" height="240"/>
+                                <rect key="frame" x="0.0" y="284" width="160" height="284"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accessories" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-WQ-f37">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="284"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accessories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggq-NY-dxT">
-                                        <rect key="frame" x="0.0" y="170" width="160" height="40"/>
+                                        <rect key="frame" x="0.0" y="214" width="160" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fh0-WT-eaA"/>
@@ -187,7 +187,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ProductsListTableViewController" id="MX3-Zi-AQR" customClass="ProductsListTableViewController" customModule="Stella_McCartney" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="280" estimatedRowHeight="280" sectionHeaderHeight="28" sectionFooterHeight="28" id="sFF-Wh-gxv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -300,14 +300,14 @@
             <objects>
                 <viewController storyboardIdentifier="ProductDetailViewController" id="42F-A2-O4k" customClass="ProductDetailViewController" customModule="Stella_McCartney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="76i-gC-sgV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1g5-xB-zPH" userLabel="BackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i0D-PN-yEx">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="158.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="187.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aNV-KH-Lcv">
                                             <size key="itemSize" width="50" height="50"/>
@@ -342,7 +342,7 @@
                                         </cells>
                                     </collectionView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WI-bi-nhn">
-                                        <rect key="frame" x="20" y="158.5" width="280" height="321.5"/>
+                                        <rect key="frame" x="20" y="187.5" width="280" height="380.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SkF-8D-317">
                                                 <rect key="frame" x="0.0" y="10" width="280" height="293"/>

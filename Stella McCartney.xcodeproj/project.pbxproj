@@ -25,6 +25,8 @@
 		A737D0A92360ED380021D721 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D0A82360ED380021D721 /* ImageServiceMock.swift */; };
 		A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */; };
 		A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */ = {isa = PBXBuildFile; fileRef = A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */; };
+		A77B90EC2361088100981046 /* ProductsListJsonItemless.json in Resources */ = {isa = PBXBuildFile; fileRef = A77B90EB2361088100981046 /* ProductsListJsonItemless.json */; };
+		A77B90EE23610D0900981046 /* LoaderDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77B90ED23610D0900981046 /* LoaderDisplayer.swift */; };
 		A7A0E6AD235E3CEE0002444F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6AC235E3CEE0002444F /* ImageService.swift */; };
 		A7A0E6AF235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6AE235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift */; };
 		A7A0E6B3235E4C2C0002444F /* ProductDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6B2235E4C2C0002444F /* ProductDetailViewState.swift */; };
@@ -107,6 +109,8 @@
 		A737D0A82360ED380021D721 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
 		A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 48199194BH_8_c.jpg; sourceTree = "<group>"; };
 		A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProductsListResponseSingleMacro.json; sourceTree = "<group>"; };
+		A77B90EB2361088100981046 /* ProductsListJsonItemless.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductsListJsonItemless.json; sourceTree = "<group>"; };
+		A77B90ED23610D0900981046 /* LoaderDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderDisplayer.swift; sourceTree = "<group>"; };
 		A7A0E6AC235E3CEE0002444F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		A7A0E6AE235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesCollectionDataSourceDelegate.swift; sourceTree = "<group>"; };
 		A7A0E6B2235E4C2C0002444F /* ProductDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewState.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				A737D0A62360E9CD0021D721 /* ProductsListResponse.json */,
+				A77B90EB2361088100981046 /* ProductsListJsonItemless.json */,
 				A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */,
 			);
 			path = JSONMocks;
@@ -410,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				A7DA58882359153400EE368D /* Storyboarded.swift */,
+				A77B90ED23610D0900981046 /* LoaderDisplayer.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A737D0A72360E9CD0021D721 /* ProductsListResponse.json in Resources */,
+				A77B90EC2361088100981046 /* ProductsListJsonItemless.json in Resources */,
 				A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */,
 				A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */,
 			);
@@ -688,6 +695,7 @@
 				A7A0E6AF235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift in Sources */,
 				A7A1D956235B854500F0BC04 /* ProductViewState.swift in Sources */,
 				A7A1D963235CEEB000F0BC04 /* ProductDetailInteractor.swift in Sources */,
+				A77B90EE23610D0900981046 /* LoaderDisplayer.swift in Sources */,
 				A7A1D969235D205800F0BC04 /* ProductImageCollectionViewCell.swift in Sources */,
 				A7A1D961235CD63900F0BC04 /* ProductDetailViewController.swift in Sources */,
 				A7A1D958235B858C00F0BC04 /* ProductsSectionViewState.swift in Sources */,

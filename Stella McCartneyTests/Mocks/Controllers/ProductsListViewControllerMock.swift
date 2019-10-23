@@ -10,12 +10,16 @@ import UIKit
 @testable import Stella_McCartney
 
 class ProductsListViewControllerMock: UIViewController {
-    
+    var errorScreenIsShown = false
     var viewState: ProductsListViewState = ProductsListViewState(productSections: [])
     var product: Product?
 }
 
-extension ProductsListViewControllerMock: ProductsListViewProtocol {
+extension ProductsListViewControllerMock: ProductsListViewProtocol, LoaderDisplayer {
+    
+    func showErrorView() {
+        errorScreenIsShown = true
+    }
     
     func goToProductDetail(for product: Product) {
         self.product = product
