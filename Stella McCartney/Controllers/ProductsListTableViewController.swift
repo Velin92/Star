@@ -31,27 +31,36 @@ class ProductsListTableViewController: UITableViewController, Storyboarded {
         tableView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.loadProductsList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? ProductsSectionTableViewCell else {
+            fatalError("Cell not correctly setup in storyboard")
+        }
+        cell.sectionLabel.text = viewState.productSections[indexPath.row].name
+        cell.products = viewState.productSections[indexPath.row].products
+        cell.selectedProductClosure = { [weak self] productIndex, cell in
+            self?.selectedProduct(at: productIndex, in: cell)
+        }
+        cell.updateCell()
+        cell.resetCellScroll()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsSectionCell", for: indexPath) as? ProductsSectionTableViewCell else {
             fatalError("Cell not correctly setup in storyboard")
-        }
-        cell.viewState = viewState.productSections[indexPath.row]
-        cell.selectedProductClosure = { [weak self] productIndex, cell in
-            self?.selectedProduct(at: productIndex, in: cell)
         }
         return cell
     }

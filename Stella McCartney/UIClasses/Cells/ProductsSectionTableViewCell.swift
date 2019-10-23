@@ -16,18 +16,16 @@ class ProductsSectionTableViewCell: UITableViewCell {
     var selectedProductClosure: ((Int, UITableViewCell) -> Void)?
     var downloadProductImageClosure: (())
     
-    var viewState = ProductsSectionViewState(name: "", products: []){
-        didSet {
-            DispatchQueue.main.async {
-                self.updateCell()
-            }
-        }
-    }
+    var products = [ProductViewState]()
     
-    private func updateCell() {
-        sectionLabel.text = viewState.name
+    func updateCell() {
         productsCollectionView.reloadData()
         productsCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func resetCellScroll() {
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        productsCollectionView.scrollToItem(at: firstIndexPath, at: .left, animated: false)
     }
     
     override func awakeFromNib() {
@@ -38,21 +36,21 @@ class ProductsSectionTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        viewState.products.removeAll()
+        products.removeAll()
+        updateCell()
     }
-    
 }
 
 extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewState.products.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as? ProductCollectionViewCell else {
             fatalError("Collection View Cell not correctly set in the storyboard")
         }
-        let cellViewState =  viewState.products[indexPath.row]
+        let cellViewState = products[indexPath.row]
         if let imageData = cellViewState.imageData {
             cell.productImageView.image = UIImage(data: imageData)
         }
