@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FBF875CD06C066CE75872FD /* Pods_Stella_McCartneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3494F3707A4557374C93E4 /* Pods_Stella_McCartneyTests.framework */; };
 		A712D5B6235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B5235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift */; };
 		A712D5B8235F522100EAD45E /* UIColor+hexStringToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B7235F522100EAD45E /* UIColor+hexStringToUIColor.swift */; };
 		A712D5BA235F56BE00EAD45E /* ProductColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A712D5B9235F56BE00EAD45E /* ProductColorCollectionViewCell.swift */; };
@@ -17,6 +18,13 @@
 		A72DCE3523590B6000910862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72DCE3323590B6000910862 /* LaunchScreen.storyboard */; };
 		A72DCE4023590B6000910862 /* Stella_McCartneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE3F23590B6000910862 /* Stella_McCartneyTests.swift */; };
 		A72DCE4B23590B6000910862 /* Stella_McCartneyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */; };
+		A737D09E2360E2E10021D721 /* MenuViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D09D2360E2E10021D721 /* MenuViewControllerMock.swift */; };
+		A737D0A02360E5FA0021D721 /* ProductsListViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D09F2360E5FA0021D721 /* ProductsListViewControllerMock.swift */; };
+		A737D0A42360E8190021D721 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D0A32360E8190021D721 /* APIClientMock.swift */; };
+		A737D0A72360E9CD0021D721 /* ProductsListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A737D0A62360E9CD0021D721 /* ProductsListResponse.json */; };
+		A737D0A92360ED380021D721 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D0A82360ED380021D721 /* ImageServiceMock.swift */; };
+		A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */; };
+		A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */ = {isa = PBXBuildFile; fileRef = A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */; };
 		A7A0E6AD235E3CEE0002444F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6AC235E3CEE0002444F /* ImageService.swift */; };
 		A7A0E6AF235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6AE235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift */; };
 		A7A0E6B3235E4C2C0002444F /* ProductDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0E6B2235E4C2C0002444F /* ProductDetailViewState.swift */; };
@@ -74,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		344A7BDBE1D21D984EFBEDFA /* Pods-Stella McCartney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartney.debug.xcconfig"; path = "Target Support Files/Pods-Stella McCartney/Pods-Stella McCartney.debug.xcconfig"; sourceTree = "<group>"; };
+		3A3494F3707A4557374C93E4 /* Pods_Stella_McCartneyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartneyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92678599EAC0A9AE21E2015B /* Pods-Stella McCartneyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartneyTests.release.xcconfig"; path = "Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests.release.xcconfig"; sourceTree = "<group>"; };
 		A712D5B5235F460000EAD45E /* ProducrColorsCollectionDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducrColorsCollectionDataSourceDelegate.swift; sourceTree = "<group>"; };
 		A712D5B7235F522100EAD45E /* UIColor+hexStringToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexStringToUIColor.swift"; sourceTree = "<group>"; };
 		A712D5B9235F56BE00EAD45E /* ProductColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductColorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +100,13 @@
 		A72DCE4623590B6000910862 /* Stella McCartneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stella McCartneyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72DCE4A23590B6000910862 /* Stella_McCartneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stella_McCartneyUITests.swift; sourceTree = "<group>"; };
 		A72DCE4C23590B6000910862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A737D09D2360E2E10021D721 /* MenuViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControllerMock.swift; sourceTree = "<group>"; };
+		A737D09F2360E5FA0021D721 /* ProductsListViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewControllerMock.swift; sourceTree = "<group>"; };
+		A737D0A32360E8190021D721 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
+		A737D0A62360E9CD0021D721 /* ProductsListResponse.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = ProductsListResponse.json; sourceTree = "<group>"; };
+		A737D0A82360ED380021D721 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
+		A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 48199194BH_8_c.jpg; sourceTree = "<group>"; };
+		A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProductsListResponseSingleMacro.json; sourceTree = "<group>"; };
 		A7A0E6AC235E3CEE0002444F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		A7A0E6AE235E492E0002444F /* ProductImagesCollectionDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesCollectionDataSourceDelegate.swift; sourceTree = "<group>"; };
 		A7A0E6B2235E4C2C0002444F /* ProductDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewState.swift; sourceTree = "<group>"; };
@@ -126,6 +143,7 @@
 		A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+caseAndDiacriticInsensitiveContain.swift"; sourceTree = "<group>"; };
 		A7DD48AE235E65F2003321B4 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C437BAEE4075873424A5579F /* Pods-Stella McCartneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartneyTests.debug.xcconfig"; path = "Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA7E8DB2538E5D4EA0E6CE50 /* Pods-Stella McCartney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartney.release.xcconfig"; path = "Target Support Files/Pods-Stella McCartney/Pods-Stella McCartney.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FBF875CD06C066CE75872FD /* Pods_Stella_McCartneyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */,
+				3A3494F3707A4557374C93E4 /* Pods_Stella_McCartneyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +229,7 @@
 		A72DCE3E23590B6000910862 /* Stella McCartneyTests */ = {
 			isa = PBXGroup;
 			children = (
+				A737D09C2360E2A10021D721 /* Mocks */,
 				A72DCE3F23590B6000910862 /* Stella_McCartneyTests.swift */,
 				A72DCE4123590B6000910862 /* Info.plist */,
 			);
@@ -222,6 +243,52 @@
 				A72DCE4C23590B6000910862 /* Info.plist */,
 			);
 			path = "Stella McCartneyUITests";
+			sourceTree = "<group>";
+		};
+		A737D09C2360E2A10021D721 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A737D0AC2360ED970021D721 /* ImageMock */,
+				A737D0A52360E8D60021D721 /* JSONMocks */,
+				A737D0A22360E7E30021D721 /* Services */,
+				A737D0A12360E7B10021D721 /* Controllers */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A737D0A12360E7B10021D721 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A737D09F2360E5FA0021D721 /* ProductsListViewControllerMock.swift */,
+				A737D09D2360E2E10021D721 /* MenuViewControllerMock.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A737D0A22360E7E30021D721 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A737D0A32360E8190021D721 /* APIClientMock.swift */,
+				A737D0A82360ED380021D721 /* ImageServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A737D0A52360E8D60021D721 /* JSONMocks */ = {
+			isa = PBXGroup;
+			children = (
+				A737D0A62360E9CD0021D721 /* ProductsListResponse.json */,
+				A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */,
+			);
+			path = JSONMocks;
+			sourceTree = "<group>";
+		};
+		A737D0AC2360ED970021D721 /* ImageMock */ = {
+			isa = PBXGroup;
+			children = (
+				A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */,
+			);
+			path = ImageMock;
 			sourceTree = "<group>";
 		};
 		A7A0E6B0235E49510002444F /* Cells */ = {
@@ -371,6 +438,8 @@
 			children = (
 				344A7BDBE1D21D984EFBEDFA /* Pods-Stella McCartney.debug.xcconfig */,
 				FA7E8DB2538E5D4EA0E6CE50 /* Pods-Stella McCartney.release.xcconfig */,
+				C437BAEE4075873424A5579F /* Pods-Stella McCartneyTests.debug.xcconfig */,
+				92678599EAC0A9AE21E2015B /* Pods-Stella McCartneyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -401,9 +470,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A72DCE5223590B6000910862 /* Build configuration list for PBXNativeTarget "Stella McCartneyTests" */;
 			buildPhases = (
+				9A282D2330BBD21062E31F8B /* [CP] Check Pods Manifest.lock */,
 				A72DCE3723590B6000910862 /* Sources */,
 				A72DCE3823590B6000910862 /* Frameworks */,
 				A72DCE3923590B6000910862 /* Resources */,
+				3DA3D260EAE13E22AE20E7AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -491,6 +562,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A737D0A72360E9CD0021D721 /* ProductsListResponse.json in Resources */,
+				A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */,
+				A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +578,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3DA3D260EAE13E22AE20E7AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73AA5EFA9CFD3EA63582FD56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,6 +611,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Stella McCartney-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A282D2330BBD21062E31F8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stella McCartneyTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -597,7 +710,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A737D0A92360ED380021D721 /* ImageServiceMock.swift in Sources */,
 				A72DCE4023590B6000910862 /* Stella_McCartneyTests.swift in Sources */,
+				A737D0A42360E8190021D721 /* APIClientMock.swift in Sources */,
+				A737D0A02360E5FA0021D721 /* ProductsListViewControllerMock.swift in Sources */,
+				A737D09E2360E2E10021D721 /* MenuViewControllerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,13 +917,15 @@
 		};
 		A72DCE5323590B6000910862 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C437BAEE4075873424A5579F /* Pods-Stella McCartneyTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J3XFT964L7;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Stella McCartneyTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -815,20 +934,22 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mauroromito.Stella-McCartneyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stella McCartney.app/Stella McCartney";
 			};
 			name = Debug;
 		};
 		A72DCE5423590B6000910862 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92678599EAC0A9AE21E2015B /* Pods-Stella McCartneyTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J3XFT964L7;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Stella McCartneyTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -837,7 +958,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mauroromito.Stella-McCartneyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stella McCartney.app/Stella McCartney";
 			};
 			name = Release;

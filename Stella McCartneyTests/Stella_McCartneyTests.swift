@@ -10,25 +10,61 @@ import XCTest
 @testable import Stella_McCartney
 
 class Stella_McCartneyTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testMenuViewModel() {
+        let mockViewController = MenuViewControllerMock()
+        let viewModel = MenuViewModel(view: mockViewController)
+        viewModel.tappedOnAccessories()
+        XCTAssert(mockViewController.listType == .accessories)
+        viewModel.tappedOnReadyToWear()
+        XCTAssert(mockViewController.listType == .readyToWear)
+        viewModel.tappedOnBeauty()
+        XCTAssert(mockViewController.listType == .beauty)
+        viewModel.tappedOnLingerie()
+        XCTAssert(mockViewController.listType == .lingerie)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testProductsListMacroSections() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try! JSONDecoder().decode(ProductsListResponse.self, from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponse", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+        XCTAssert(mockViewController.viewState.productSections.count == 3)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testProductListMicroSections() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try! JSONDecoder().decode(ProductsListResponse.self, from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponseSingleMacro", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+        
+        XCTAssert(mockViewController.viewState.productSections.count == 2)
     }
-
+    
+    func testProductListInteractorError() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try! JSONDecoder().decode(ProductsListResponse.self, from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponse", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
 }

@@ -1,0 +1,122 @@
+{
+  "Header": {
+    "StatusCode": 200,
+    "Description": "200 OK"
+  },
+  "ResultsLite": {
+    "TotalResults": 218,
+    "Items": [
+      {
+        "Code8": "41934792",
+        "BrandName": "STELLA McCARTNEY",
+        "DefaultCode10": "41934792OA",
+        "MicroCategory": "Corto",
+        "MacroCategory": "A",
+        "FullPrice": 1295,
+        "DiscountedPrice": 1295,
+        "ModelNames": "Piumino Trapuntato",
+        "Sizes": [
+          {
+            "Text": "36",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "38",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "40",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "42",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "44",
+            "ClassFamily": "IT"
+          }
+        ],
+        "Colors": [
+          {
+            "Id": 21518
+          }
+        ]
+      },
+      {
+        "Code8": "41934792",
+        "BrandName": "STELLA McCARTNEY",
+        "DefaultCode10": "41934792OA",
+        "MicroCategory": "Corto",
+        "MacroCategory": "B",
+        "FullPrice": 1295,
+        "DiscountedPrice": 1295,
+        "ModelNames": "Piumino Trapuntato",
+        "Sizes": [
+          {
+            "Text": "36",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "38",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "40",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "42",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "44",
+            "ClassFamily": "IT"
+          }
+        ],
+        "Colors": [
+          {
+            "Id": 21518
+          }
+        ]
+      },
+      {
+        "Code8": "41934792",
+        "BrandName": "STELLA McCARTNEY",
+        "DefaultCode10": "41934792OA",
+        "MicroCategory": "Corto",
+        "MacroCategory": "C",
+        "FullPrice": 1295,
+        "DiscountedPrice": 1295,
+        "ModelNames": "Piumino Trapuntato",
+        "Sizes": [
+          {
+            "Text": "36",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "38",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "40",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "42",
+            "ClassFamily": "IT"
+          },
+          {
+            "Text": "44",
+            "ClassFamily": "IT"
+          }
+        ],
+        "Colors": [
+          {
+            "Id": 21518
+          }
+        ]
+      }
+    ]
+  }
+}

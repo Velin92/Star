@@ -24,7 +24,7 @@ class ProductsListInteractor: ProductsListInteractorProtocol {
     let type: ProductsListType
     let apiService: ProductsListAPIClient
     let imageService: ProductsListImageService
-    var products = [String:Product]()
+    private var products = [String:Product]()
     
     var imageDownloadedClosure: ((String, Data) -> Void)?
 
