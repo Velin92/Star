@@ -36,6 +36,11 @@ class ProductsSectionTableViewCell: UITableViewCell {
         productsCollectionView.dataSource = self
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        viewState.products.removeAll()
+    }
+    
 }
 
 extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
