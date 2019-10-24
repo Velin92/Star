@@ -15,22 +15,23 @@ protocol ProductsListViewModelProtocol {
 
 class ProductsListViewModel: ProductsListViewModelProtocol {
     
-    typealias ProductsListView = ProductsListViewProtocol & LoaderDisplayer
-    weak var view: ProductsListView!
+    weak var view: ProductsListViewProtocol!
     var interactor: ProductsListInteractorProtocol
     var viewState = ProductsListViewState(productSections: [])
     var viewIndexesToProductId : [IndexPath: String] = [:]
+    private var isViewLoaded = false
     
-    init(view: ProductsListView, interactor: ProductsListInteractorProtocol) {
+    init(view: ProductsListViewProtocol, interactor: ProductsListInteractorProtocol) {
         self.view = view
         self.interactor = interactor
-        self.configureInteractor()
+        configureInteractor()
     }
     
     func loadProductsList() {
-        view.showLoader()
+        guard !isViewLoaded else {return}
+        setSkeletonViewState()
         interactor.loadProductsList() { [weak self] result in
-            self?.view.hideLoader()
+            self?.clearSkeletonViewState()
             switch result {
             case .success(let products):
                 self?.populateViewModel(with: products)
@@ -39,6 +40,16 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
                 self?.view.showErrorView()
             }
         }
+        isViewLoaded = true
+    }
+    
+    private func setSkeletonViewState() {
+        viewState = ProductsListViewState(isSkeleton: true, productSections: [ProductsSectionViewState(name: "skeleton", products: [ProductViewState(name: "skeleton", price: 1000)])] )
+        updateViewState()
+    }
+    
+    private func clearSkeletonViewState() {
+        viewState = ProductsListViewState(isSkeleton: false, productSections: [])
     }
     
     private func configureInteractor() {

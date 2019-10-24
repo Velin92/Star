@@ -15,12 +15,12 @@ protocol ProductsListViewProtocol where Self: UIViewController {
     func showErrorView()
 }
 
-class ProductsListTableViewController: UITableViewController, Storyboarded, LoaderDisplayer {
+class ProductsListTableViewController: UITableViewController, Storyboarded, Skeletonable {
     
     var viewModel: ProductsListViewModelProtocol!
     var goToProductDetailClosure: ((Product)->Void)?
     
-    var viewState = ProductsListViewState(productSections: []){
+    var viewState: ProductsListViewState = ProductsListViewState(productSections: []){
         didSet {
             DispatchQueue.main.async {
                 self.updateView()
@@ -30,16 +30,20 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Load
     
     private func updateView() {
         tableView.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel.loadProductsList()
+        if viewState.isSkeleton {
+            showSkeleton()
+        } else {
+            hideSkeleton()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.loadProductsList()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

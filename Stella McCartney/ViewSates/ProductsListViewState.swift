@@ -10,5 +10,6 @@ import Foundation
 
 struct ProductsListViewState {
     
+    var isSkeleton = false
     var productSections: [ProductsSectionViewState]
 }
