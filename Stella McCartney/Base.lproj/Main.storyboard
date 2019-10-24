@@ -209,7 +209,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mV-Jv-bQ6" userLabel="SectionLabel">
-                                            <rect key="frame" x="10" y="20" width="394" height="21"/>
+                                            <rect key="frame" x="10" y="20" width="110" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="Rle-xy-qv0"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -285,7 +288,7 @@
                                         <constraint firstItem="7mV-Jv-bQ6" firstAttribute="leading" secondItem="uTQ-2a-Roz" secondAttribute="leading" constant="10" id="T6i-ee-ALT"/>
                                         <constraint firstItem="7mV-Jv-bQ6" firstAttribute="top" secondItem="uTQ-2a-Roz" secondAttribute="top" constant="20" id="c5m-h7-JAn"/>
                                         <constraint firstAttribute="trailing" secondItem="mem-3Y-4ma" secondAttribute="trailing" id="chc-70-ZG9"/>
-                                        <constraint firstAttribute="trailing" secondItem="7mV-Jv-bQ6" secondAttribute="trailing" constant="10" id="mqo-mB-hbB"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7mV-Jv-bQ6" secondAttribute="trailing" constant="10" id="mqo-mB-hbB"/>
                                         <constraint firstItem="mem-3Y-4ma" firstAttribute="leading" secondItem="uTQ-2a-Roz" secondAttribute="leading" id="r8i-f9-cJ5"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -303,7 +306,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLJ-cR-woc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="137"/>
+            <point key="canvasLocation" x="730.43478260869574" y="136.60714285714286"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="Q0o-Le-VB8">

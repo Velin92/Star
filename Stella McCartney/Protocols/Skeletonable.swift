@@ -50,9 +50,9 @@ extension Skeletonable {
             let skeletons = self.skeletonViews(in: self.view)
             var backgroundColor = UIColor.lightSkeletonBackground.cgColor
             var highlightColor = UIColor.lightSkeletonHighlight.cgColor
-            if #available(iOS 13.0, *), self.traitCollection.userInterfaceStyle == .dark {
-                backgroundColor = UIColor.darkSkeletonBackground.cgColor
-                highlightColor = UIColor.darkSkeletonHighlight.cgColor
+            if #available(iOS 11.0, *) {
+                backgroundColor = UIColor.skeletonBackground.cgColor
+                highlightColor =  UIColor.skeletonHighlight.cgColor
             }
             
             let skeletonLayer = CALayer()

@@ -19,11 +19,13 @@ extension UIColor {
         return UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0)
     }
     
-    static var darkSkeletonBackground: UIColor {
-        return UIColor(red: 90.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+    @available(iOS 11.0, *)
+    static var skeletonBackground: UIColor {
+        return UIColor(named: "skeletonBackground")!
     }
     
-    static var darkSkeletonHighlight: UIColor {
-        return UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0)
+    @available(iOS 11.0, *)
+    static var skeletonHighlight: UIColor {
+        return UIColor(named: "skeletonHighlight")!
     }
 }

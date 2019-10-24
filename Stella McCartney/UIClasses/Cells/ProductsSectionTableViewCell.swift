@@ -51,9 +51,10 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
             fatalError("Collection View Cell not correctly set in the storyboard")
         }
         let cellViewState = products[indexPath.row]
-        cell.productImageView.backgroundColor = UIColor.lightSkeletonBackground
-        if #available(iOS 13.0, *), self.traitCollection.userInterfaceStyle == .dark {
-            cell.productImageView.backgroundColor = UIColor.darkSkeletonBackground
+        if #available(iOS 11.0, *) {
+            cell.productImageView.backgroundColor = UIColor.skeletonBackground
+        } else {
+            cell.productImageView.backgroundColor = UIColor.lightSkeletonBackground
         }
         if let imageData = cellViewState.imageData {
             cell.productImageView.image = UIImage(data: imageData)
