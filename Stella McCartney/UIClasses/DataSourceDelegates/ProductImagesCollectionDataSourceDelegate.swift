@@ -11,17 +11,25 @@ import UIKit
 
 class ProductImagesCollectionDataSourceDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
     
-    var imageDatas = [Data]()
+    var imageStates = [ImageStates]()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageDatas.count
+        return imageStates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductImageCell", for: indexPath) as? ProductImageCollectionViewCell else {
             fatalError("Cell is not setup correctly in storyboard")
         }
-        cell.productImageView.image = UIImage(data: imageDatas[indexPath.item])
+        if #available(iOS 11.0, *) {
+            cell.productImageView.backgroundColor = UIColor.skeletonBackground
+        } else {
+            cell.productImageView.backgroundColor = UIColor.lightSkeletonBackground
+        }
+        if case let ImageStates.imageFound(imageData) = imageStates[indexPath.row] {
+            cell.productImageView.image = UIImage(data: imageData)
+            cell.productImageView.backgroundColor = .clear
+        }
         return cell
     }
     

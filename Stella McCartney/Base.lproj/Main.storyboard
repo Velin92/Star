@@ -389,7 +389,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colori Disponibili:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA1-1E-heR" userLabel="Colors">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colori Disponibili:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA1-1E-heR" userLabel="Colors">
                                                         <rect key="frame" x="0.0" y="121.3333333333333" width="374" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -444,7 +444,7 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taglie Disponibili:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P02-pj-j7I">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taglie Disponibili:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P02-pj-j7I">
                                                         <rect key="frame" x="0.0" y="211.66666666666663" width="374" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -526,11 +526,13 @@
                     <connections>
                         <outlet property="categoriesLabel" destination="8kO-VN-Ok6" id="jpS-8n-F5M"/>
                         <outlet property="colorsCollectionView" destination="Lr1-MY-Bj8" id="ho3-iQ-eR6"/>
+                        <outlet property="colorsLabel" destination="fA1-1E-heR" id="LHe-a5-vD6"/>
                         <outlet property="discountedPriceLabel" destination="Io7-8h-0Ev" id="tKC-GB-Fvd"/>
                         <outlet property="nameLabel" destination="HX1-fa-3bK" id="gsw-hF-WOJ"/>
                         <outlet property="priceLabel" destination="8ma-yU-zLm" id="Bs8-8i-rbE"/>
                         <outlet property="productImagesCollectionView" destination="i0D-PN-yEx" id="DOt-MG-IbZ"/>
                         <outlet property="sizesCollectionView" destination="1eg-st-HHQ" id="iwi-XQ-yl4"/>
+                        <outlet property="sizesLabel" destination="P02-pj-j7I" id="ZXS-ix-8A8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxr-O9-yZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

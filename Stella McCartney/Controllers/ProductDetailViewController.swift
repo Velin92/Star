@@ -15,6 +15,8 @@ protocol ProductDetailViewProtocol where Self: UIViewController {
 
 class ProductDetailViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var sizesLabel: UILabel!
+    @IBOutlet weak var colorsLabel: UILabel!
     @IBOutlet weak var discountedPriceLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -38,7 +40,7 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     }
     
     private func updateDataSources() {
-        imagesCollectionDSD.imageDatas = viewState.imageDatas
+        imagesCollectionDSD.imageStates = viewState.imageStates
         colorsCollectionDSD.cellViewStates = viewState.colors
         sizesCollectionDSD.cellViewState = viewState.sizes
     }
@@ -48,6 +50,28 @@ class ProductDetailViewController: UIViewController, Storyboarded {
         categoriesLabel.text = viewState.formattedCategories
         updatePriceLabels()
         reloadCollectionViews()
+        updateAdditionalInfoViews()
+    }
+    
+    private func updateAdditionalInfoViews() {
+        switch viewState.additionalInfoState {
+        case .loading:
+            setAdditionInfoViewsAreHidden(true)
+        case .notFound:
+            setAdditionInfoViewsAreHidden(true)
+            colorsLabel.isHidden = false
+        case .found:
+            setAdditionInfoViewsAreHidden(false)
+        }
+        colorsLabel.text = viewState.colorText
+        sizesLabel.text = viewState.sizesText
+    }
+        
+    private func setAdditionInfoViewsAreHidden(_ value: Bool) {
+        colorsCollectionView.isHidden = value
+        sizesCollectionView.isHidden = value
+        colorsLabel.isHidden = value
+        sizesLabel.isHidden = value
     }
     
     private func updatePriceLabels() {

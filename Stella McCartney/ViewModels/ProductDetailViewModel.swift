@@ -26,10 +26,9 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     }
     
     func loadView() {
-        updateViewState()
+        setLoadingState()
         interactor.loadImages() { [weak self] datas in
-            self?.viewState.imageDatas = datas
-            self?.updateViewState()
+            self?.updateImageSates(from: datas)
         }
         interactor.loadProductAdditionalDetails { [weak self] result in
             switch result {
@@ -42,13 +41,24 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
                     print(sizes)
                     self?.updateSizes(sizes)
                 }
+                self?.viewState.additionalInfoState = .found
                 self?.updateViewState()
             case .failure:
-                break
+                self?.viewState.additionalInfoState = .notFound
+                self?.updateViewState()
             }
         }
     }
-    
+        
+    private func updateImageSates(from datas: [Data]) {
+        if datas.isEmpty {
+            viewState.imageStates = [.imagesNotFound]
+        } else {
+            viewState.imageStates = datas.map{ImageStates.imageFound(imageData: $0)}
+        }
+        updateViewState()
+    }
+        
     private func updateColors(_ colors: [ModelColor] ) {
         viewState.colors = colors.compactMap { color in
             guard let colorName = color.colorDescription, let rgbColor = color.rgb else{
@@ -69,5 +79,11 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     
     private func updateViewState() {
         view.viewState = viewState
+    }
+    
+    private func setLoadingState() {
+        viewState.imageStates = [.imageLoading]
+        viewState.additionalInfoState = .loading
+        updateViewState()
     }
 }
