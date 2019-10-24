@@ -65,6 +65,7 @@
 		A7DD48AB235E5E95003321B4 /* Data+imageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AA235E5E95003321B4 /* Data+imageFormat.swift */; };
 		A7DD48AD235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */; };
 		A7DD48AF235E65F2003321B4 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DD48AE235E65F2003321B4 /* CacheStorage.swift */; };
+		A7E7191723623290006760B3 /* ProductDetailResponseEmptyColorsAndSizes.json in Resources */ = {isa = PBXBuildFile; fileRef = A7E7191623623290006760B3 /* ProductDetailResponseEmptyColorsAndSizes.json */; };
 		CF901332621B00D49D290310 /* Pods_Stella_McCartney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		A7DD48AA235E5E95003321B4 /* Data+imageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+imageFormat.swift"; sourceTree = "<group>"; };
 		A7DD48AC235E60F1003321B4 /* String+caseAndDiacriticInsensitiveContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+caseAndDiacriticInsensitiveContain.swift"; sourceTree = "<group>"; };
 		A7DD48AE235E65F2003321B4 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
+		A7E7191623623290006760B3 /* ProductDetailResponseEmptyColorsAndSizes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProductDetailResponseEmptyColorsAndSizes.json; sourceTree = "<group>"; };
 		BB1DCA54E049C3167F177F2B /* Pods_Stella_McCartney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stella_McCartney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C437BAEE4075873424A5579F /* Pods-Stella McCartneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartneyTests.debug.xcconfig"; path = "Target Support Files/Pods-Stella McCartneyTests/Pods-Stella McCartneyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA7E8DB2538E5D4EA0E6CE50 /* Pods-Stella McCartney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stella McCartney.release.xcconfig"; path = "Target Support Files/Pods-Stella McCartney/Pods-Stella McCartney.release.xcconfig"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				A77280C923619D1000B0BA44 /* ProductsListResponseDiscounts.json */,
 				A77B90EB2361088100981046 /* ProductsListJsonItemless.json */,
 				A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */,
+				A7E7191623623290006760B3 /* ProductDetailResponseEmptyColorsAndSizes.json */,
 			);
 			path = JSONMocks;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				A77280CA23619D1000B0BA44 /* ProductsListResponseDiscounts.json in Resources */,
 				A77B90EC2361088100981046 /* ProductsListJsonItemless.json in Resources */,
 				A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */,
+				A7E7191723623290006760B3 /* ProductDetailResponseEmptyColorsAndSizes.json in Resources */,
 				A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
