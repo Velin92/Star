@@ -53,8 +53,12 @@ extension Skeletonable {
     func showSkeleton() {
         DispatchQueue.main.async {
             let skeletons = self.skeletonViews(in: self.view)
-            let backgroundColor = UIColor(red: 210.0/255.0, green: 210.0/255.0, blue: 210.0/255.0, alpha: 1.0).cgColor
-            let highlightColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0).cgColor
+            var backgroundColor = UIColor(red: 210.0/255.0, green: 210.0/255.0, blue: 210.0/255.0, alpha: 1.0).cgColor
+            var highlightColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0).cgColor
+            if #available(iOS 13.0, *), self.traitCollection.userInterfaceStyle == .dark {
+                backgroundColor = UIColor(red: 89.0/255.0, green: 89.0/255.0, blue: 89.0/255.0, alpha: 1.0).cgColor
+                highlightColor = UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0).cgColor
+            }
             
             let skeletonLayer = CALayer()
             skeletonLayer.backgroundColor = backgroundColor
@@ -74,12 +78,12 @@ extension Skeletonable {
                 $0.layer.addSublayer(skeletonLayer)
                 $0.layer.addSublayer(gradientLayer)
                 $0.clipsToBounds = true
-                let widht = UIScreen.main.bounds.width
+                let width = UIScreen.main.bounds.width
                 
                 let animation = CABasicAnimation(keyPath: "transform.translation.x")
                 animation.duration = 3
-                animation.fromValue = -widht
-                animation.toValue = widht
+                animation.fromValue = -width
+                animation.toValue = width
                 animation.repeatCount = .infinity
                 animation.autoreverses = false
                 animation.fillMode = CAMediaTimingFillMode.forwards

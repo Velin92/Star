@@ -15,7 +15,7 @@ class ProductsListViewControllerMock: UIViewController {
     var product: Product?
 }
 
-extension ProductsListViewControllerMock: ProductsListViewProtocol, LoaderDisplayer {
+extension ProductsListViewControllerMock: ProductsListViewProtocol, Skeletonable {
     
     func showErrorView() {
         errorScreenIsShown = true
