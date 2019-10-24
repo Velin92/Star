@@ -1,6 +1,0 @@
-framework module Pods_Stella_McCartneyTests {
-  umbrella header "Pods-Stella McCartneyTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
