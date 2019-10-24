@@ -92,7 +92,7 @@ extension ProductsListTableViewController: ProductsListViewProtocol {
         errorLabel.numberOfLines = 0
         errorLabel.text = """
         Si è verificato un errore.
-        Controllare la connessione e riprovare più tardi
+        Controllare la connessione e riprovare più tardi.
         """
         errorLabel.textAlignment = .center
         errorLabel.frame = maskView.frame
