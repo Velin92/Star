@@ -27,6 +27,10 @@ extension Skeletonable {
         return "skeletonGradientName"
     }
     
+    private var maskViewName: String {
+        return "maskViewName"
+    }
+    
     // 4
     private func skeletonViews(in view: UIView) -> [UIView] {
         var results = [UIView]()
@@ -82,6 +86,11 @@ extension Skeletonable {
                 
                 gradientLayer.add(animation, forKey: "gradientLayerShimmerAnimation")
             }
+            let maskView = UIView(frame: self.view.frame)
+            maskView.backgroundColor = .clear
+            maskView.center = self.view.center
+            maskView.tag = self.maskViewName.hashValue
+            self.view.addSubview(maskView)
         }
     }
     
@@ -93,6 +102,10 @@ extension Skeletonable {
                     $0.name == self.skeletonLayerName || $0.name == self.skeletonGradientName
                 }
             }
+            let maskView = self.view.subviews.first( where: {
+                $0.tag == self.maskViewName.hashValue
+            })
+            maskView?.removeFromSuperview()
         }
     }
 }

@@ -44,8 +44,20 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     }
     
     private func setSkeletonViewState() {
-        viewState = ProductsListViewState(isSkeleton: true, productSections: [ProductsSectionViewState(name: "skeleton", products: [ProductViewState(name: "skeleton", price: 1000)])] )
+        viewState = generateSkeletonViewState()
         updateViewState()
+    }
+    
+    private func generateSkeletonViewState() -> ProductsListViewState {
+        var skeletonViewState = ProductsListViewState(isSkeleton: true, productSections: [])
+        for _ in 0...2 {
+            var skeletonProductsSection = ProductsSectionViewState(name: "skeleton", products: [])
+            for _ in 0...4 {
+                skeletonProductsSection.products.append(ProductViewState(name: "skeleton", price: 1000))
+            }
+            skeletonViewState.productSections.append(skeletonProductsSection)
+        }
+        return skeletonViewState
     }
     
     private func clearSkeletonViewState() {
