@@ -10,7 +10,7 @@ import XCTest
 @testable import Stella_McCartney
 
 class Stella_McCartneyTests: XCTestCase {
-        
+    
     func testMenuViewModel() {
         let mockViewController = MenuViewControllerMock()
         let viewModel = MenuViewModel(view: mockViewController)
@@ -41,7 +41,7 @@ class Stella_McCartneyTests: XCTestCase {
         let apiClientMock = APIClientMock()
         apiClientMock.productListResponse = try! JSONDecoder().decode(ProductsListResponse.self, from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponseSingleMacro", withExtension: "json")!))
         let imageServiceMock = ImageServiceMock()
-        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+         imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
         let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
         let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
         viewModel.loadProductsList()
@@ -57,6 +57,19 @@ class Stella_McCartneyTests: XCTestCase {
         let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
         let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
         viewModel.loadProductsList()
+        XCTAssert(mockViewController.errorScreenIsShown)
+    }
+    
+    func testProductsListNoItems() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try!JSONDecoder().decode(ProductsListResponse.self,from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListJsonItemless", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+         imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+        
         XCTAssert(mockViewController.errorScreenIsShown)
     }
     
