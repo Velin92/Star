@@ -12,12 +12,9 @@ import Foundation
 
 class APIClientMock: ProductsListAPIClient, ProductDetailAPIClient {
     
+    var productDetailResponse: ProductDetailResponse!
     var productListResponse: ProductsListResponse!
     var isFailureTest = false
-    
-    var numberOfElements: Int {
-        return productListResponse.resultsLite!.totalResults!
-    }
     
     func productsList(of type: ProductsListType, completion: @escaping (AFResult<ProductsListResponse>) -> Void) {
         if !isFailureTest {
@@ -28,9 +25,12 @@ class APIClientMock: ProductsListAPIClient, ProductDetailAPIClient {
     }
     
     func productDetail(for productId: String, completion: @escaping (AFResult<ProductDetailResponse>) -> Void) {
-        
+        if !isFailureTest {
+            completion(AFResult<ProductDetailResponse>.success(productDetailResponse))
+        } else {
+            completion(AFResult<ProductDetailResponse>.failure(AFError.sessionTaskFailed(error: "a")))
+        }
     }
-    
 }
 
 extension String:Error {

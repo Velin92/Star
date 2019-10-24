@@ -24,6 +24,7 @@
 		A737D0A72360E9CD0021D721 /* ProductsListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A737D0A62360E9CD0021D721 /* ProductsListResponse.json */; };
 		A737D0A92360ED380021D721 /* ImageServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D0A82360ED380021D721 /* ImageServiceMock.swift */; };
 		A737D0AB2360ED940021D721 /* 48199194BH_8_c.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */; };
+		A75A14F023622BC900B97D97 /* ProductDetailViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A14EF23622BC900B97D97 /* ProductDetailViewControllerMock.swift */; };
 		A77280CA23619D1000B0BA44 /* ProductsListResponseDiscounts.json in Resources */ = {isa = PBXBuildFile; fileRef = A77280C923619D1000B0BA44 /* ProductsListResponseDiscounts.json */; };
 		A77B90EA236103E800981046 /* ProductsListResponseSingleMacro.json in Resources */ = {isa = PBXBuildFile; fileRef = A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */; };
 		A77B90EC2361088100981046 /* ProductsListJsonItemless.json in Resources */ = {isa = PBXBuildFile; fileRef = A77B90EB2361088100981046 /* ProductsListJsonItemless.json */; };
@@ -110,6 +111,7 @@
 		A737D0A62360E9CD0021D721 /* ProductsListResponse.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = ProductsListResponse.json; sourceTree = "<group>"; };
 		A737D0A82360ED380021D721 /* ImageServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceMock.swift; sourceTree = "<group>"; };
 		A737D0AA2360ED940021D721 /* 48199194BH_8_c.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 48199194BH_8_c.jpg; sourceTree = "<group>"; };
+		A75A14EF23622BC900B97D97 /* ProductDetailViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewControllerMock.swift; sourceTree = "<group>"; };
 		A77280C923619D1000B0BA44 /* ProductsListResponseDiscounts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductsListResponseDiscounts.json; sourceTree = "<group>"; };
 		A77B90E9236103E800981046 /* ProductsListResponseSingleMacro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProductsListResponseSingleMacro.json; sourceTree = "<group>"; };
 		A77B90EB2361088100981046 /* ProductsListJsonItemless.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductsListJsonItemless.json; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				A737D09F2360E5FA0021D721 /* ProductsListViewControllerMock.swift */,
 				A737D09D2360E2E10021D721 /* MenuViewControllerMock.swift */,
+				A75A14EF23622BC900B97D97 /* ProductDetailViewControllerMock.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A737D0A92360ED380021D721 /* ImageServiceMock.swift in Sources */,
+				A75A14F023622BC900B97D97 /* ProductDetailViewControllerMock.swift in Sources */,
 				A72DCE4023590B6000910862 /* Stella_McCartneyTests.swift in Sources */,
 				A737D0A42360E8190021D721 /* APIClientMock.swift in Sources */,
 				A737D0A02360E5FA0021D721 /* ProductsListViewControllerMock.swift in Sources */,

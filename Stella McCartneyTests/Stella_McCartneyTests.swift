@@ -86,6 +86,42 @@ class Stella_McCartneyTests: XCTestCase {
         XCTAssert(mockViewController.viewState.productSections[2].products[0].formattedPrice == "1295€")
     }
     
+    func testTapProduct() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try!JSONDecoder().decode(ProductsListResponse.self,from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponse", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+         imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+        viewModel.selectedProduct(at: 0, in: 0)
+        XCTAssert(mockViewController.product!.code8! == "0")
+        viewModel.selectedProduct(at: 0, in: 1)
+        XCTAssert(mockViewController.product!.code8! == "1")
+        viewModel.selectedProduct(at: 0, in: 2)
+        XCTAssert(mockViewController.product!.code8! == "2")
+        viewModel.selectedProduct(at: 1, in: 2)
+        XCTAssert(mockViewController.product!.code8! == "3")
+    }
+    
+    func testProductDetailErrors() {
+        let mockViewController = ProductDetailViewControllerMock()
+        let apiClientMock = APIClientMock()
+        let imageServiceMock = ImageServiceMock()
+        imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let product = Product(code8: "a", brandName: "b", defaultCode10: "c", macroCategory: "d", microCategory: "e", fullPrice: 1, discountedPrice: 1, modelNames: "test", sizes: [], colors: [])
+        let interactor = ProductDetailInteractor(product: product, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductDetailViewModel(view: mockViewController, interactor: interactor)
+        apiClientMock.isFailureTest = true
+        viewModel.loadView()
+        XCTAssert(mockViewController.viewState.colorText ==  """
+                   Informazioni aggiuntive non disponibili.
+                   Verificare la connessione e riprovare più tardi
+                   """)
+        XCTAssert(mockViewController.viewState.additionalInfoState == .missing)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
