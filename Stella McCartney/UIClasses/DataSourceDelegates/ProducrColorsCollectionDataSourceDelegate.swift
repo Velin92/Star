@@ -24,7 +24,10 @@ class ProductColorsCollectionDataSourceDelegate: NSObject, UICollectionViewDataS
         cell.colorNameLabel.text = cellViewStates[indexPath.row].colorName
         if let color = UIColor.hexStringToUIColor(hex: cellViewStates[indexPath.row].rgbColor) {
             cell.colorImageView.backgroundColor = color
-        } else {
+            cell.colorImageView.layer.borderWidth = 2
+            if #available(iOS 13.0, *) {
+                cell.colorImageView.layer.borderColor = UIColor.label.cgColor
+            }
         }
         return cell
     }
