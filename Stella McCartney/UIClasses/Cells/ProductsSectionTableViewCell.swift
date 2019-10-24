@@ -53,6 +53,10 @@ extension ProductsSectionTableViewCell: UICollectionViewDataSource, UICollection
         let cellViewState = products[indexPath.row]
         if let imageData = cellViewState.imageData {
             cell.productImageView.image = UIImage(data: imageData)
+            cell.activityIndicatorView.stopAnimating()
+        } else {
+            cell.activityIndicatorView.isHidden = false
+            cell.activityIndicatorView.startAnimating()
         }
         cell.productNameLabel.text = cellViewState.name
         cell.productPriceLabel.text = "\(cellViewState.formattedPrice)"
