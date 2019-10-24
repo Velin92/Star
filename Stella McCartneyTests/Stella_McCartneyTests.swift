@@ -69,8 +69,21 @@ class Stella_McCartneyTests: XCTestCase {
         let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
         let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
         viewModel.loadProductsList()
-        
         XCTAssert(mockViewController.errorScreenIsShown)
+    }
+    
+    func testProductsListWithDiscounts() {
+        let mockViewController = ProductsListViewControllerMock()
+        let apiClientMock = APIClientMock()
+        apiClientMock.productListResponse = try!JSONDecoder().decode(ProductsListResponse.self,from: Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "ProductsListResponseDiscounts", withExtension: "json")!))
+        let imageServiceMock = ImageServiceMock()
+         imageServiceMock.data = try! Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "48199194BH_8_c", withExtension: "jpg")!)
+        let interactor = ProductsListInteractor(of: .accessories, apiService: apiClientMock, imageService: imageServiceMock)
+        let viewModel = ProductsListViewModel(view: mockViewController, interactor: interactor)
+        viewModel.loadProductsList()
+        XCTAssert(mockViewController.viewState.productSections[0].products[0].formattedPrice == "1195€")
+         XCTAssert(mockViewController.viewState.productSections[1].products[0].formattedPrice == "1295€")
+        XCTAssert(mockViewController.viewState.productSections[2].products[0].formattedPrice == "1295€")
     }
     
     func testPerformanceExample() {
