@@ -9,16 +9,13 @@
 import Foundation
 import UIKit
 
-// 1
 protocol Skeletonable where Self: UIViewController {
     func showSkeleton()
     func hideSkeleton()
 }
 
-// 2
 extension Skeletonable {
     
-    // 3
     private var skeletonLayerName: String {
         return "skeletonLayerName"
     }
@@ -31,7 +28,6 @@ extension Skeletonable {
         return "maskViewName"
     }
     
-    // 4
     private func skeletonViews(in view: UIView) -> [UIView] {
         var results = [UIView]()
         for subview in view.subviews as [UIView] {
@@ -49,15 +45,14 @@ extension Skeletonable {
         return results
     }
     
-    // 5
     func showSkeleton() {
         DispatchQueue.main.async {
             let skeletons = self.skeletonViews(in: self.view)
-            var backgroundColor = UIColor(red: 210.0/255.0, green: 210.0/255.0, blue: 210.0/255.0, alpha: 1.0).cgColor
-            var highlightColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0).cgColor
+            var backgroundColor = UIColor.lightSkeletonBackground.cgColor
+            var highlightColor = UIColor.lightSkeletonHighlight.cgColor
             if #available(iOS 13.0, *), self.traitCollection.userInterfaceStyle == .dark {
-                backgroundColor = UIColor(red: 89.0/255.0, green: 89.0/255.0, blue: 89.0/255.0, alpha: 1.0).cgColor
-                highlightColor = UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0).cgColor
+                backgroundColor = UIColor.darkSkeletonBackground.cgColor
+                highlightColor = UIColor.darkSkeletonHighlight.cgColor
             }
             
             let skeletonLayer = CALayer()
@@ -98,7 +93,6 @@ extension Skeletonable {
         }
     }
     
-    // 6
     func hideSkeleton() {
         DispatchQueue.main.async {
             self.skeletonViews(in: self.view).forEach {
