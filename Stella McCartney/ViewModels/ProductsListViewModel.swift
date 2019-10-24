@@ -50,9 +50,9 @@ class ProductsListViewModel: ProductsListViewModelProtocol {
     
     private func generateSkeletonViewState() -> ProductsListViewState {
         var skeletonViewState = ProductsListViewState(isSkeleton: true, productSections: [])
-        for _ in 0...2 {
+        for i in 0...2 {
             var skeletonProductsSection = ProductsSectionViewState(name: "skeleton", products: [])
-            for _ in 0...4 {
+            for _ in 0...2-i {
                 skeletonProductsSection.products.append(ProductViewState(name: "skeleton", price: 1000))
             }
             skeletonViewState.productSections.append(skeletonProductsSection)

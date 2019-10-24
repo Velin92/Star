@@ -26,9 +26,16 @@ class ProductImagesCollectionDataSourceDelegate: NSObject, UICollectionViewDataS
         } else {
             cell.productImageView.backgroundColor = UIColor.lightSkeletonBackground
         }
-        if case let ImageStates.imageFound(imageData) = imageStates[indexPath.row] {
+        switch imageStates[indexPath.row] {
+        case .imageFound(let imageData):
             cell.productImageView.image = UIImage(data: imageData)
             cell.productImageView.backgroundColor = .clear
+        case .notFound:
+            cell.productImageView.backgroundColor = .clear
+            //Show an image with "No available images"
+            break
+        default:
+            break
         }
         return cell
     }

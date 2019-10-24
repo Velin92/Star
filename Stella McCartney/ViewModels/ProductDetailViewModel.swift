@@ -41,10 +41,10 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
                     print(sizes)
                     self?.updateSizes(sizes)
                 }
-                self?.viewState.additionalInfoState = .found
+                self?.viewState.additionalInfoState = .ready
                 self?.updateViewState()
             case .failure:
-                self?.viewState.additionalInfoState = .notFound
+                self?.viewState.additionalInfoState = .missing
                 self?.updateViewState()
             }
         }
@@ -52,7 +52,7 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
         
     private func updateImageSates(from datas: [Data]) {
         if datas.isEmpty {
-            viewState.imageStates = [.imagesNotFound]
+            viewState.imageStates = [.notFound]
         } else {
             viewState.imageStates = datas.map{ImageStates.imageFound(imageData: $0)}
         }
@@ -83,7 +83,7 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     
     private func setLoadingState() {
         viewState.imageStates = [.imageLoading]
-        viewState.additionalInfoState = .loading
+        viewState.additionalInfoState = .notReady
         updateViewState()
     }
 }

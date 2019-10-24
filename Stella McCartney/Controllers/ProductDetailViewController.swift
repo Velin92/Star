@@ -55,23 +55,36 @@ class ProductDetailViewController: UIViewController, Storyboarded {
     
     private func updateAdditionalInfoViews() {
         switch viewState.additionalInfoState {
-        case .loading:
-            setAdditionInfoViewsAreHidden(true)
-        case .notFound:
-            setAdditionInfoViewsAreHidden(true)
-            colorsLabel.isHidden = false
-        case .found:
-            setAdditionInfoViewsAreHidden(false)
+        case .notReady:
+            hideAdditionalInfoViews()
+        case .missing:
+            setAdditionInfoViewsMissing()
+        case .ready:
+            setAdditionalInfoViewsReady()
         }
         colorsLabel.text = viewState.colorText
         sizesLabel.text = viewState.sizesText
     }
-        
-    private func setAdditionInfoViewsAreHidden(_ value: Bool) {
-        colorsCollectionView.isHidden = value
-        sizesCollectionView.isHidden = value
-        colorsLabel.isHidden = value
-        sizesLabel.isHidden = value
+    
+    private func setAdditionalInfoViewsReady() {
+        colorsLabel.isHidden = false
+        sizesLabel.isHidden = false
+        colorsCollectionView.isHidden = viewState.colors.isEmpty
+        sizesCollectionView.isHidden = viewState.sizes.isEmpty
+    }
+    
+    private func setAdditionInfoViewsMissing() {
+        colorsCollectionView.isHidden = true
+        sizesCollectionView.isHidden = true
+        sizesLabel.isHidden = true
+        colorsLabel.isHidden = false
+    }
+    
+    private func hideAdditionalInfoViews() {
+        colorsCollectionView.isHidden = true
+        sizesCollectionView.isHidden = true
+        colorsLabel.isHidden = true
+        sizesLabel.isHidden = true
     }
     
     private func updatePriceLabels() {

@@ -11,13 +11,13 @@ import Foundation
 enum ImageStates {
     case imageFound(imageData: Data)
     case imageLoading
-    case imagesNotFound
+    case notFound
 }
 
 enum AdditionalInfoState {
-    case loading
-    case notFound
-    case found
+    case notReady
+    case missing
+    case ready
 }
 
 struct ProductDetailViewState {
@@ -31,7 +31,7 @@ struct ProductDetailViewState {
     let isDiscounted: Bool
     var colors = [ProductColorViewState]()
     var sizes = [ProductSizeViewState]()
-    var additionalInfoState = AdditionalInfoState.loading
+    var additionalInfoState = AdditionalInfoState.notReady
     
     init(modelName: String, macroCategory: String, microCategory: String, fullPrice: Int, discountedPrice: Int? = nil) {
         self.modelName = modelName
@@ -60,7 +60,7 @@ struct ProductDetailViewState {
     }
     
     var colorText: String {
-        if additionalInfoState == .notFound {
+        if additionalInfoState == .missing {
             return """
             Informazioni aggiuntive non disponibili.
             Verificare la connessione e riprovare più tardi
