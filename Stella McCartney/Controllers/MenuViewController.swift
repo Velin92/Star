@@ -25,7 +25,6 @@ class MenuViewController: UIViewController, Storyboarded {
     @IBOutlet weak var accessoriesLabel: UILabel!
     @IBOutlet weak var blurView: UIVisualEffectView!
     
-    
     var goToProductListClosure: ((ProductsListType)->Void)?
     var viewModel: MenuViewModelProtocol!
     

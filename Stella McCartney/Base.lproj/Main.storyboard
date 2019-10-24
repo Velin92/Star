@@ -138,10 +138,10 @@
                                 </constraints>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWU-q5-Rxr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="hOx-0l-fp7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="185"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="regular"/>
