@@ -28,4 +28,13 @@ extension UIColor {
     static var skeletonHighlight: UIColor {
         return UIColor(named: "skeletonHighlight")!
     }
+    
+    static var lightMenuLabelsColor: UIColor {
+        return UIColor(red: 255, green: 255, blue: 255, alpha: 0.8)
+    }
+    
+    @available(iOS 11.0, *)
+    static var menuLabelsColor: UIColor {
+        return UIColor(named: "menuLabelsColor")!
+    }
 }

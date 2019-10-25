@@ -47,6 +47,12 @@ class MenuViewController: UIViewController, Storyboarded {
     }
     
     private func setupLabels() {
+        if #available(iOS 11.0, *) {
+            accessoriesLabel.backgroundColor = UIColor.menuLabelsColor
+            readyToWearLabel.backgroundColor = UIColor.menuLabelsColor
+            lingerieLabel.backgroundColor = UIColor.menuLabelsColor
+            beautyLabel.backgroundColor = UIColor.menuLabelsColor
+        }
         accessoriesLabel.layer.masksToBounds = true
         accessoriesLabel.layer.cornerRadius = accessoriesLabel.frame.height/5
         readyToWearLabel.layer.masksToBounds = true
