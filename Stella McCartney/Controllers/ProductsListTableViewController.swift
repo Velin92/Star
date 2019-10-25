@@ -40,12 +40,9 @@ class ProductsListTableViewController: UITableViewController, Storyboarded, Skel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         viewModel.loadProductsList()
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
